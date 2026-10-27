@@ -1,0 +1,1923 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Ecuagroom — educación continua, eventos y comunidad para groomers profesionales. Gira EE. UU. primavera 2027: Bridgeport, Nueva York, Florida y Los Ángeles." />
+    <link rel="icon" type="image/jpeg" href="assets/icono-ecuagroom.jpg" />
+    <title>Ecuagroom — Educación continua para groomers profesionales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root{
+        color-scheme:dark;
+        --bg:#150A24;
+        --bg-alt:#200E38;
+        --surface:#2A1547;
+        --ink:#F6F1E7;
+        --muted:#C9BADB;
+        --gold:#D9A94E;
+        --gold-bright:#F0CE7A;
+        --gold-soft:rgba(217,169,78,.18);
+        --line:#43296B;
+        --chip:#2A1748;
+        --deep:#0C0516;
+        --accent-ink:#1D0E33;
+        --shadow:0 14px 34px rgba(0,0,0,.45);
+        --radius:14px;
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;background:var(--bg);color:var(--ink);
+        font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+        font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;
+      }
+      h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.15;margin:0;color:var(--ink)}
+      p{margin:0}
+      a{color:var(--gold)}
+      img{display:block;max-width:100%}
+      .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+
+      /* ---------- Nav ---------- */
+      header.site-nav{
+        position:sticky;top:0;z-index:50;
+        background:color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--line);
+      }
+      .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}
+      .brand{display:inline-flex;align-items:center;gap:13px;text-decoration:none}
+      .logo-pill{
+        background:#fff;border-radius:12px;padding:5px 11px;display:inline-flex;align-items:center;
+        border:1px solid rgba(217,169,78,.65);box-shadow:0 4px 14px rgba(0,0,0,.35);
+      }
+      .logo-pill img{height:38px;width:auto}
+      .wordmark{font-family:"Playfair Display",Georgia,serif;font-weight:800;font-size:1.32rem;letter-spacing:.14em;color:var(--ink)}
+      .wordmark span{color:var(--gold)}
+      @media (max-width:560px){
+        .brand .wordmark{display:none}
+        .logo-pill img{height:34px}
+      }
+      nav.links{display:flex;gap:26px;align-items:center}
+      nav.links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
+      nav.links a:hover{color:var(--gold)}
+      nav.links a.nav-cta{
+        background:var(--gold);color:var(--accent-ink);padding:9px 18px;border-radius:999px;font-weight:700;
+      }
+      nav.links a.nav-cta:hover{background:var(--gold-bright);color:var(--accent-ink)}
+      .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:inherit;font-weight:700;color:var(--ink);cursor:pointer}
+      @media (max-width:820px){
+        .nav-toggle{display:block}
+        nav.links{
+          display:none;position:absolute;left:0;right:0;top:100%;
+          flex-direction:column;align-items:stretch;gap:0;
+          background:var(--surface);border-bottom:1px solid var(--line);padding:8px 22px 16px;
+        }
+        nav.links.open{display:flex}
+        nav.links a{padding:11px 0;border-bottom:1px solid var(--line)}
+        nav.links a:last-child{border-bottom:none}
+        nav.links a.nav-cta{text-align:center;margin-top:8px}
+        header.site-nav{position:sticky}
+        .nav-inner{position:relative}
+      }
+
+      /* ---------- Hero ---------- */
+      .hero{
+        padding:58px 0 64px;
+        background:
+          radial-gradient(2px 2px at 8% 18%, rgba(240,206,122,.55) 50%, transparent 51%),
+          radial-gradient(1.5px 1.5px at 22% 64%, rgba(240,206,122,.4) 50%, transparent 51%),
+          radial-gradient(2.5px 2.5px at 46% 12%, rgba(240,206,122,.35) 50%, transparent 51%),
+          radial-gradient(1.5px 1.5px at 68% 38%, rgba(240,206,122,.45) 50%, transparent 51%),
+          radial-gradient(2px 2px at 84% 70%, rgba(240,206,122,.35) 50%, transparent 51%),
+          radial-gradient(1.5px 1.5px at 94% 24%, rgba(240,206,122,.5) 50%, transparent 51%),
+          linear-gradient(165deg,#34145E 0%,var(--bg) 58%,var(--bg-alt) 100%);
+      }
+      .hero-grid{display:block;max-width:52rem}
+      .hero h1{font-size:clamp(2.15rem,4.6vw,3.4rem);font-weight:800;margin-bottom:18px}
+      .hero h1 em{font-style:italic;color:var(--gold)}
+      .hero .lead{font-size:1.13rem;color:var(--muted);max-width:34rem;margin-bottom:28px}
+      .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+      .btn{
+        display:inline-block;text-decoration:none;font-weight:700;border-radius:999px;
+        padding:13px 26px;font-size:1rem;border:1.5px solid transparent;cursor:pointer;font-family:inherit;
+      }
+      .btn-primary{background:var(--gold);color:var(--accent-ink)}
+      .btn-primary:hover{background:var(--gold-bright)}
+      .btn-ghost{background:transparent;color:var(--ink);border-color:var(--gold)}
+      .btn-ghost:hover{border-color:var(--gold-bright);color:var(--gold-bright)}
+      .hero-stats{display:flex;flex-wrap:wrap;gap:10px}
+      .stat-chip{
+        background:var(--chip);border:1px solid var(--line);border-radius:12px;
+        padding:9px 15px;font-size:.92rem;font-weight:600;color:var(--ink);
+      }
+      .stat-chip strong{color:var(--gold);font-weight:800}
+      .hero-banner{margin:42px 0 0;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(217,169,78,.55)}
+      .hero-banner img{width:100%;height:auto}
+      @media (max-width:880px){
+        .hero{padding:38px 0 48px}
+        .hero-banner{margin-top:30px}
+      }
+
+      /* ---------- Sections ---------- */
+      section{padding:66px 0}
+      section.alt{background:var(--bg-alt)}
+      .section-head{max-width:44rem;margin-bottom:38px}
+      .section-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);font-weight:700;margin-bottom:12px}
+      .section-head p{color:var(--muted);font-size:1.05rem}
+      .rule{width:56px;height:3px;background:var(--gold);border-radius:2px;margin-bottom:18px}
+
+      .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+      .pillar{
+        background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+        padding:28px 26px;box-shadow:var(--shadow);
+      }
+      .pillar .num{
+        font-family:"Playfair Display",Georgia,serif;font-size:1.9rem;font-weight:700;color:var(--gold);
+        display:block;margin-bottom:10px;
+      }
+      .pillar h3{font-size:1.22rem;margin-bottom:9px}
+      .pillar p{color:var(--muted);font-size:.98rem}
+      @media (max-width:880px){.pillars{grid-template-columns:1fr}}
+
+      /* ---------- Eventos realizados ---------- */
+      .history{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+      .hist-card{
+        background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+        padding:28px 26px;box-shadow:var(--shadow);
+      }
+      .hist-card h3{font-size:1.3rem;margin-bottom:6px}
+      .hist-card .where{
+        display:block;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+        color:var(--gold);margin-bottom:14px;
+      }
+      .event{border-top:1px dashed var(--line);padding:14px 0 4px}
+      .event:first-of-type{border-top:none;padding-top:2px}
+      .event h4{font-family:"Playfair Display",Georgia,serif;font-size:1.08rem;margin:0 0 5px;color:var(--ink)}
+      .event p{color:var(--muted);font-size:.96rem}
+      .event p + p{margin-top:9px}
+      .event p strong,.event .temario li strong{color:var(--ink)}
+      .event img.event-flyer{margin-top:14px;width:100%;border-radius:12px;border:1px solid rgba(217,169,78,.45)}
+      .event .flyer-cap{margin-top:8px;font-size:.88rem;color:var(--muted)}
+      .event .temario-head{margin-top:12px;color:var(--ink);font-weight:700;font-size:.96rem}
+      .event .temario{list-style:none;margin:7px 0 4px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}
+      .event .temario li{color:var(--muted);font-size:.92rem;padding-left:16px;position:relative}
+      .event .temario li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+      @media (max-width:640px){.event .temario{grid-template-columns:1fr}}
+      @media (max-width:880px){.history{grid-template-columns:1fr}}
+
+      /* ---------- Álbumes por evento ---------- */
+      .album-cover{
+        display:block;position:relative;width:100%;margin-top:14px;padding:0;cursor:pointer;
+        background:var(--deep);border:1px solid rgba(217,169,78,.45);border-radius:12px;overflow:hidden;
+      }
+      .album-cover img{width:100%;height:220px;object-fit:cover}
+      .album-cover:hover img{opacity:.88}
+      .album-badge{
+        position:absolute;right:10px;bottom:10px;background:rgba(12,5,22,.85);color:var(--gold-bright);
+        border:1px solid var(--gold);border-radius:999px;padding:6px 13px;font-weight:700;font-size:.85rem;
+      }
+      .album-btn{
+        margin-top:14px;background:none;border:1.5px solid var(--gold);color:var(--gold);
+        font:inherit;font-weight:700;font-size:.93rem;border-radius:999px;padding:8px 18px;cursor:pointer;
+      }
+      .album-btn:hover{background:var(--gold);color:var(--accent-ink)}
+      .album-cover:focus-visible,.album-btn:focus-visible{outline:2px solid var(--gold-bright);outline-offset:2px}
+
+      .album-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
+      .album-overlay[hidden]{display:none}
+      .album-backdrop{position:absolute;inset:0;background:rgba(9,3,18,.9);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+      .album-panel{
+        position:relative;background:var(--bg-alt);border:1px solid var(--gold);border-radius:18px;
+        box-shadow:var(--shadow);width:100%;max-width:1020px;max-height:92vh;overflow:auto;padding:26px;
+      }
+      .album-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+      .album-head h3{font-size:1.35rem;margin-bottom:4px}
+      .album-head p{color:var(--muted);font-size:.92rem}
+      .album-close{
+        flex:none;width:40px;height:40px;border-radius:50%;background:none;cursor:pointer;
+        border:1.5px solid var(--gold);color:var(--gold);font-size:1.35rem;line-height:1;font-family:inherit;
+      }
+      .album-close:hover{background:var(--gold);color:var(--accent-ink)}
+      .album-note{color:var(--muted);font-size:.95rem;margin-top:10px}
+      .album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}
+      .album-grid button{padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--deep);cursor:pointer}
+      .album-grid button:hover{border-color:var(--gold)}
+      .album-grid img{width:100%;height:170px;object-fit:cover}
+      .album-view{margin-top:16px;text-align:center}
+      .album-view[hidden]{display:none}
+      .album-view img{
+        max-width:100%;max-height:52vh;width:auto;margin:0 auto;object-fit:contain;
+        background:var(--deep);border:1px solid var(--line);border-radius:12px;
+      }
+      .album-cap{color:var(--muted);margin-top:12px;font-size:.98rem}
+      .album-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:14px;flex-wrap:wrap}
+      .album-nav button,.album-back{
+        background:none;border:1.5px solid var(--gold);color:var(--gold);font:inherit;font-weight:700;
+        border-radius:999px;padding:8px 18px;cursor:pointer;
+      }
+      .album-nav button:hover,.album-back:hover{background:var(--gold);color:var(--accent-ink)}
+      .album-back{margin-top:16px}
+      #albumCount{color:var(--muted);font-weight:700;font-size:.92rem}
+      @media (max-width:640px){
+        .album-panel{padding:18px}
+        .album-grid{grid-template-columns:repeat(auto-fill,minmax(118px,1fr))}
+        .album-grid img{height:128px}
+        .album-cover img{height:190px}
+      }
+
+      /* ---------- Gira ---------- */
+      .cities{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:26px}
+      .city{
+        background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+        padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;
+      }
+      .city .tag{
+        align-self:flex-start;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+        background:var(--gold-soft);color:var(--gold);border-radius:999px;padding:5px 12px;
+      }
+      .city h3{font-size:1.45rem}
+      .city p{color:var(--muted);font-size:.98rem;flex:1}
+      .city .pick{
+        margin-top:10px;align-self:flex-start;background:none;border:1.5px solid var(--gold);color:var(--gold);
+        font:inherit;font-weight:700;font-size:.93rem;border-radius:999px;padding:8px 18px;cursor:pointer;
+      }
+      .city .pick:hover{background:var(--gold);color:var(--accent-ink)}
+      @media (max-width:760px){.cities{grid-template-columns:1fr}}
+
+      .format-panel{
+        background:linear-gradient(150deg,#2A1150 0%,var(--deep) 72%);color:#F2EFE6;border-radius:20px;padding:34px;
+        border:1px solid var(--line);
+        display:grid;grid-template-columns:1.1fr .9fr;gap:34px;
+      }
+      .format-panel h3{color:#fff;font-size:1.5rem;margin-bottom:14px}
+      .format-panel p{color:#C9BADB;font-size:1rem}
+      .format-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
+      .format-list li{border-top:1px solid rgba(255,255,255,.18);padding-top:12px}
+      .format-list .k{display:block;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;color:#D9A94E;font-weight:800;margin-bottom:3px}
+      .format-list .v{font-weight:700;font-size:1.05rem;color:#fff}
+      .format-list .s{display:block;font-size:.88rem;color:#C9BADB;font-weight:500}
+      @media (max-width:820px){
+        .format-panel{grid-template-columns:1fr;padding:26px}
+        .format-list{grid-template-columns:1fr}
+      }
+
+      /* ---------- Split rows ---------- */
+      .split{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+      .split img.photo{border-radius:18px;box-shadow:var(--shadow);width:100%;object-fit:cover}
+      .split h2{font-size:clamp(1.6rem,3.2vw,2.15rem);margin-bottom:14px}
+      .split p{color:var(--muted);margin-bottom:14px}
+      .split p strong{color:var(--ink)}
+      @media (max-width:880px){.split{grid-template-columns:1fr;gap:26px}}
+
+      .checklist{list-style:none;margin:18px 0 0;padding:0}
+      .checklist li{padding:9px 0 9px 30px;position:relative;color:var(--muted);border-bottom:1px dashed var(--line)}
+      .checklist li:last-child{border-bottom:none}
+      .checklist li::before{
+        content:"";position:absolute;left:2px;top:15px;width:9px;height:9px;border-radius:50%;background:var(--gold);
+      }
+      .checklist li strong{color:var(--ink)}
+
+      /* ---------- Logo línea de tijeras ---------- */
+      .tools-logo{
+        width:100%;border-radius:14px;border:1px solid var(--line);
+        box-shadow:var(--shadow);margin-bottom:18px;
+      }
+
+      /* ---------- Retrato fundadora ---------- */
+      .portrait{margin:0;justify-self:center;width:100%;max-width:400px}
+      .portrait img{
+        width:100%;border-radius:18px;box-shadow:var(--shadow);
+        border:1px solid rgba(217,169,78,.55);
+      }
+      .portrait figcaption{
+        margin-top:12px;text-align:center;color:var(--gold);font-weight:700;font-size:.95rem;
+      }
+
+      /* ---------- Form ---------- */
+      .waitlist{
+        background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);
+        padding:36px;max-width:760px;margin:0 auto;
+      }
+      .waitlist h2{font-size:1.8rem;margin-bottom:10px;text-align:center}
+      .waitlist>p{text-align:center;color:var(--muted);margin-bottom:26px}
+      form.wl{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+      form.wl .full{grid-column:1/-1}
+      label{display:block;font-weight:700;font-size:.9rem;margin-bottom:6px}
+      input,select,textarea{
+        width:100%;font:inherit;padding:12px 14px;border-radius:10px;
+        border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+      }
+      input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+      textarea{resize:vertical;min-height:84px}
+      form.wl button{grid-column:1/-1;justify-self:center}
+      .form-note{grid-column:1/-1;text-align:center;font-size:.88rem;color:var(--muted)}
+      .form-ok{
+        display:none;background:var(--chip);border:1px solid var(--gold);border-radius:12px;
+        padding:16px 18px;margin-top:18px;font-size:.97rem;
+      }
+      .form-ok a{font-weight:700}
+      @media (max-width:640px){form.wl{grid-template-columns:1fr}.waitlist{padding:26px 20px}}
+
+      /* ---------- Contact ---------- */
+      .mail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:30px}
+      .mail-card{
+        background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+        padding:24px;box-shadow:var(--shadow);
+      }
+      .mail-card h3{font-size:1.08rem;font-family:"Manrope",sans-serif;font-weight:800;margin-bottom:6px}
+      .mail-card p{color:var(--muted);font-size:.94rem;margin-bottom:12px}
+      .mail-card a.addr{font-weight:800;color:var(--gold);text-decoration:none;word-break:break-all}
+      .mail-card a.addr:hover{color:var(--gold-bright)}
+      @media (max-width:880px){.mail-grid{grid-template-columns:1fr}}
+      .social-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+      .social-row a{
+        border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:700;
+        border-radius:999px;padding:10px 22px;
+      }
+      .social-row a:hover{border-color:var(--gold);color:var(--gold)}
+
+      footer{
+        background:var(--deep);color:#C9BADB;padding:38px 0;text-align:center;font-size:.93rem;
+      }
+      footer .f-logo{
+        display:inline-flex;background:#fff;border-radius:14px;padding:9px 18px;margin-bottom:16px;
+        border:1px solid rgba(217,169,78,.65);box-shadow:0 6px 18px rgba(0,0,0,.35);
+      }
+      footer .f-logo img{height:56px;width:auto}
+      footer a{color:#E9D9AE}
+
+      /* ---------- Navegación por páginas ---------- */
+      nav.links a.active{color:var(--gold);box-shadow:inset 0 -2px 0 var(--gold)}
+      @media (max-width:820px){nav.links a.active{box-shadow:none;text-decoration:underline;text-underline-offset:5px}}
+      .teaser-link{display:inline-block;margin-top:14px;font-weight:800;text-decoration:none;color:var(--gold)}
+      .teaser-link:hover{color:var(--gold-bright)}
+
+      /* ---------- Video oficial (Eventos) ---------- */
+      .event-video{margin-top:22px}
+      .event-video h5{font-family:"Playfair Display",Georgia,serif;font-size:1.08rem;font-weight:700;margin:0 0 5px;color:var(--ink)}
+      .event-video .video-cap{color:var(--muted);font-size:.92rem;margin-bottom:14px}
+      .event-video video{
+        display:block;width:100%;max-width:420px;height:auto;margin:0 auto;
+        border-radius:14px;border:1px solid rgba(217,169,78,.55);
+        background:var(--deep);box-shadow:var(--shadow);
+      }
+
+      /* ---------- Adelanto del video (Inicio) ---------- */
+      .video-teaser{display:grid;grid-template-columns:300px 1fr;gap:42px;align-items:center}
+      .video-poster{
+        position:relative;display:block;width:100%;max-width:300px;justify-self:center;
+        border-radius:16px;overflow:hidden;border:1px solid rgba(217,169,78,.55);box-shadow:var(--shadow);
+      }
+      .video-poster img{width:100%;height:auto}
+      .video-poster .play-badge{
+        position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+        background:linear-gradient(180deg,transparent 52%,rgba(12,5,22,.5));
+      }
+      .play-circle{
+        width:66px;height:66px;border-radius:50%;background:rgba(12,5,22,.8);
+        border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;
+      }
+      .play-circle svg{width:24px;height:24px;fill:var(--gold-bright);margin-left:3px}
+      .video-poster:hover .play-circle,.video-poster:focus-visible .play-circle{background:var(--gold)}
+      .video-poster:hover .play-circle svg,.video-poster:focus-visible .play-circle svg{fill:var(--accent-ink)}
+      .video-poster:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
+      .video-teaser h2{font-size:clamp(1.6rem,3.2vw,2.15rem);margin-bottom:14px}
+      .video-teaser p{color:var(--muted);margin-bottom:22px}
+      @media (max-width:880px){
+        .video-teaser{grid-template-columns:1fr;gap:26px;text-align:center}
+        .video-teaser .rule{margin-left:auto;margin-right:auto}
+      }
+      footer .f-nav{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:center;margin:2px 0 16px}
+      footer .f-nav a{font-weight:600;text-decoration:none}
+      footer .f-nav a:hover{text-decoration:underline}
+    </style>
+  </head>
+  <body>
+
+    <header class="site-nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#/inicio" aria-label="Ecuagroom — inicio">
+          <span class="logo-pill"><img src="assets/logo-ecuagroom.jpg" alt="Logo oficial de Ecuagroom: silueta de caniche gris, ECUAGROOM en morado y el lema «Seminarios & Competencias»" /></span>
+          <span class="wordmark">ECUA<span>GROOM</span></span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
+        <nav class="links" id="navLinks">
+          <a href="#/inicio" data-page-link="inicio">Inicio</a>
+          <a href="#/eventos" data-page-link="eventos">Eventos</a>
+          <a href="#/gira" data-page-link="gira">Gira 2027</a>
+          <a href="#/fundadora" data-page-link="fundadora">Fundadora</a>
+          <a href="#/productos" data-page-link="productos">Productos</a>
+          <a href="#/contacto" data-page-link="contacto">Contacto</a>
+          <a class="nav-cta" href="#/gira" data-scroll-target="lista-espera">Lista de espera</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <!-- ============ PÁGINA: INICIO ============ -->
+      <div data-page="inicio">
+    <!-- ================= HERO ================= -->
+    <div class="hero" id="inicio">
+      <div class="wrap">
+        <div class="hero-grid">
+          <h1>Educación continua para groomers que <em>ya dominan</em> su oficio</h1>
+          <p class="lead">
+            Ecuagroom es la marca de formación avanzada y comunidad profesional creada por la educadora
+            <strong>Blanca Lamar</strong>: talleres presenciales, seminarios y certificaciones de participación
+            para peluqueros caninos con experiencia que quieren seguir creciendo.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#/gira">Conoce la Gira EE. UU. 2027</a>
+            <a class="btn btn-ghost" href="#/contacto">Escríbenos</a>
+          </div>
+          <div class="hero-stats">
+            <span class="stat-chip"><strong>4</strong> ciudades en 2027</span>
+            <span class="stat-chip">Grupos íntimos de <strong>6</strong> groomers</span>
+            <span class="stat-chip"><strong>10 h</strong> de práctica por taller</span>
+          </div>
+        </div>
+        <figure class="hero-banner">
+          <img src="assets/portada-ecuagroom.jpg" alt="Portada oficial de Ecuagroom: caniche blanco de exposición y schnauzer negro sobre fondo morado y negro con detalles dorados; lema «Conviértete en un experto en peluquería canina y transforma tu vida hoy», teléfonos 9297103525 y +593 96 266 2458, franja dorada «Alto Nivel»" />
+        </figure>
+      </div>
+    </div>
+    <!-- ================= LA MARCA ================= -->
+    <section id="marca">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="rule"></div>
+          <h2>Una comunidad, no solo cursos</h2>
+          <p>
+            Ecuagroom nació en Ecuador y hoy crece desde Estados Unidos con una idea clara: el groomer
+            profesional nunca deja de aprender, y aprende mejor acompañado. Todo lo que hacemos gira
+            alrededor de tres pilares.
+          </p>
+        </div>
+        <div class="pillars">
+          <article class="pillar">
+            <span class="num">01</span>
+            <h3>Educación técnica</h3>
+            <p>
+              Contenido avanzado y aplicable en la mesa de trabajo: técnica de tijera, acabados,
+              manejo de mantos y estándares de salón, enseñados paso a paso por instructoras en activo.
+            </p>
+          </article>
+          <article class="pillar">
+            <span class="num">02</span>
+            <h3>Comunidad</h3>
+            <p>
+              Una familia profesional que se apoya, comparte clientes, oportunidades y conocimiento.
+              En Ecuagroom nadie crece solo: cada evento deja colegas, no solo apuntes.
+            </p>
+          </article>
+          <article class="pillar">
+            <span class="num">03</span>
+            <h3>Eventos presenciales</h3>
+            <p>
+              Talleres íntimos y seminarios donde se practica de verdad, con corrección en vivo y
+              certificado de participación. La experiencia presencial es el corazón de la marca.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- ================= AVANCES ================= -->
+    <section class="alt" id="avances">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="rule"></div>
+          <h2>Explora Ecuagroom</h2>
+          <p>
+            Lo esencial de la marca, página por página: la gira que viene, los eventos que ya
+            hicimos y las herramientas con nuestro nombre.
+          </p>
+        </div>
+        <div class="pillars">
+          <article class="pillar">
+            <h3>Gira EE. UU. — Primavera 2027</h3>
+            <p>
+              Cuatro paradas con Blanca Lamar y Gisela Gonzalez: Bridgeport, Nueva York,
+              Florida y Los Ángeles. Las fechas se anuncian primero a la lista de espera.
+            </p>
+            <a class="teaser-link" href="#/gira">Ver la gira y la lista de espera &rarr;</a>
+          </article>
+          <article class="pillar">
+            <h3>Eventos realizados</h3>
+            <p>
+              Del primer congreso en Santo Domingo (2018) a la Masterclass de Nueva York
+              (2026): recorre los álbumes de fotos de cada encuentro de la comunidad.
+            </p>
+            <a class="teaser-link" href="#/eventos">Ver los eventos &rarr;</a>
+          </article>
+          <article class="pillar">
+            <h3>Productos Ecuagroom</h3>
+            <p>
+              Las tijeras profesionales de la marca, probadas en el salón por Blanca, y su
+              manual de peluquería canina, ya en producción.
+            </p>
+            <a class="teaser-link" href="#/productos">Ver los productos &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- ================= VIDEO MASTERCLASS ================= -->
+    <section id="video-masterclass">
+      <div class="wrap">
+        <div class="video-teaser">
+          <a class="video-poster" href="#/eventos" data-scroll-target="masterclass-video" aria-label="Ver el video oficial de la Masterclass de Nueva York en la página de Eventos">
+            <img src="assets/eventos/masterclass-ny-2026-poster.jpg" alt="Asistentes de la Masterclass Ecuagroom 2026 en Nueva York grabando la demostración con sus teléfonos" loading="lazy" />
+            <span class="play-badge"><span class="play-circle"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z" /></svg></span></span>
+          </a>
+          <div>
+            <div class="rule"></div>
+            <h2>Así se vivió la Masterclass de Nueva York</h2>
+            <p>
+              El 20 de septiembre de 2026, groomers de la zona se reunieron en el Courtyard by
+              Marriott Long Island City para una jornada de formación avanzada con Gisela
+              González y el groomer Harry. El video oficial resume el ambiente de ese día.
+            </p>
+            <a class="btn btn-primary" href="#/eventos" data-scroll-target="masterclass-video">Ver el video</a>
+          </div>
+        </div>
+      </div>
+    </section>
+      </div>
+
+      <!-- ============ PÁGINA: EVENTOS ============ -->
+      <div data-page="eventos">
+    <!-- ================= EVENTOS REALIZADOS ================= -->
+    <section class="alt" id="eventos">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="rule"></div>
+          <h2>Eventos realizados</h2>
+          <p>
+            La gira 2027 no parte de cero: Ecuagroom lleva años reuniendo a la comunidad groomer.
+            En Ecuador, su Congreso Internacional de Peluquería Canina va ya por la cuarta edición,
+            con sedes en Santo Domingo, Quito y Guayaquil; y en Estados Unidos la marca ya realizó
+            seminarios, talleres de nivelación y su Masterclass en Nueva York.
+            Toca la portada de cada evento para abrir su álbum de fotos.
+          </p>
+        </div>
+        <div class="history">
+          <article class="hist-card">
+            <h3>Ecuador</h3>
+            <span class="where">Donde nació la marca</span>
+            <div class="event">
+              <h4>1.er Congreso y Competencia Internacional de Peluquería Canina — Santo Domingo, 2018</h4>
+              <p>
+                El evento que lo empezó todo: del 1 al 3 de julio de 2018, en Santo Domingo,
+                Ecuador. Cuatro ponentes internacionales — Felipe Corrêa Galharde (Brasil),
+                Claudio Morales (Chile), César Salamanca (Colombia) y Luis Aparicio (Panamá) —
+                en el primer congreso y competencia internacional de la marca.
+              </p>
+              <p class="temario-head">Especialidades de los ponentes</p>
+              <ul class="temario">
+                <li><strong>Felipe Corrêa Galharde:</strong> estilo asiático comercial</li>
+                <li><strong>Luis Aparicio:</strong> stripping</li>
+                <li><strong>Claudio Morales:</strong> expresiones faciales y acabados comerciales</li>
+                <li><strong>César Salamanca:</strong> estructura y peluquería avanzada en caniches</li>
+              </ul>
+              <p class="temario-head">Podio de la I Competencia — 25 competidores</p>
+              <p>
+                1.º Mónica Bertero (†) — Cocker Spaniel · 2.º Santiago Chuquin — Schnauzer ·
+                3.º Fernando Hidalgo — Bouvier des Flandres.
+              </p>
+              <p class="temario-head">Auspiciantes</p>
+              <p>Artero · Casa Grooming · Passion Grooming.</p>
+              <button class="album-cover" type="button" data-album="congreso-2018" aria-haspopup="dialog">
+                <img src="assets/eventos/congreso-2018-fb-1.jpg" alt="Foto grupal de los asistentes al 1.er Congreso Internacional en el salón de la Cámara de Comercio de Santo Domingo, 2018" loading="lazy" />
+                <span class="album-badge">Álbum · 77 fotos</span>
+              </button>
+            </div>
+            <div class="event">
+              <h4>2.º Congreso Internacional de Peluquería Canina — Santo Domingo, 2019</h4>
+              <p>
+                Del 30 de junio al 2 de julio de 2019, en la Cámara de Comercio de Santo Domingo:
+                tres días de seminarios y taller práctico con expositores de siete países — entre
+                ellos Michael Zhang (China), Sandra Montoya (México), Roberto Nugnes (Argentina)
+                y Emilia Díaz (España) — y la primera competencia oficial de peluquería canina
+                realizada en Ecuador.
+              </p>
+              <p>
+                En esta edición se incorporaron como ponentes los ecuatorianos Mónica Bertero
+                y Santiago Chuquin, proyectando el talento nacional, y se realizó por primera
+                vez la Noche de Integración de Groomers Ecuatorianos.
+              </p>
+              <p class="temario-head">Podio — Categoría Profesionales</p>
+              <p>1.º Roberto Viera · 2.º Sandra Montoya · 3.º Fernando Hidalgo.</p>
+              <p class="temario-head">Auspiciantes</p>
+              <p>Hotel del Pacífico · Passion Grooming · Betoven · Artero Ecuador · Qualipure · Utsumi.</p>
+              <button class="album-cover" type="button" data-album="congreso-2019" aria-haspopup="dialog">
+                <img src="assets/eventos/congreso-2019-fb-1.jpg" alt="Foto grupal de asistentes y equipo del 2.º Congreso Internacional en Santo Domingo, 2019" loading="lazy" />
+                <span class="album-badge">Álbum · 40 fotos</span>
+              </button>
+            </div>
+            <div class="event">
+              <h4>3.er Congreso Internacional de Peluquería Canina — Quito, 2022</h4>
+              <p>
+                Del 27 al 29 de noviembre de 2022, en el Colegio de Médicos Veterinarios de
+                Pichincha, sector Parque La Carolina. Ponentes internacionales como Claudio
+                Morales (Chile), Yeiner Mayo y Diego RJ (Colombia), junto a talento ecuatoriano
+                como Fernando Hidalgo; competencias por categorías — tijera, caniche, spaniel,
+                stripping y creativo — y certificado de asistencia para los participantes.
+              </p>
+              <p>
+                La convocatoria reunió a <strong>80 participantes</strong> de Ecuador, Colombia,
+                Perú y Venezuela, y la Noche de Integración cerró el encuentro con un recorrido
+                en chiva por Quito.
+              </p>
+              <p class="temario-head">Especialidades de los ponentes</p>
+              <ul class="temario">
+                <li><strong>Sonia Luengo (España):</strong> caniche gigante</li>
+                <li><strong>Claudio Morales (Chile):</strong> «caritas redondas»</li>
+                <li><strong>Yeiner Mayo (Colombia):</strong> schnauzer gigante</li>
+                <li><strong>Diego RJ (Colombia):</strong> estilo asiático</li>
+              </ul>
+              <p class="temario-head">Jornadas complementarias</p>
+              <ul class="temario">
+                <li><strong>Dra. Isabel Hernández:</strong> accidentes y primeros auxilios en peluquería canina</li>
+                <li><strong>Fernando Hidalgo:</strong> cosmetología aplicada a mantos duros</li>
+                <li><strong>Saray Dellán:</strong> gestión estratégica de redes sociales para groomers</li>
+              </ul>
+              <p class="temario-head">Premios Grooming Ecuador — primera edición</p>
+              <p>
+                Trayectoria: <strong>Fernando Hidalgo</strong> · Groomer nacional:
+                <strong>Betzaida Aspiazu</strong> · Groomer internacional: <strong>Fabio Gómez</strong> ·
+                Groomer revelación: <strong>Marcela Pacaya</strong> · Groomer influencer:
+                <strong>William Mañay</strong>.
+              </p>
+              <p class="temario-head">Resultados oficiales de la competencia</p>
+              <p><strong>Best in Show:</strong> Álvaro Reyes (Colombia) — Cocker Spaniel.</p>
+              <p>
+                <strong>Categoría Principiantes.</strong> Workshop principiantes: 1. Andrea Ruiz ·
+                2. Michael Lamar · 3. Bryan Tamayo.
+              </p>
+              <p>
+                <strong>Categoría Intermedios.</strong> Workshop intermedios: 1. Norma Barrera ·
+                2. Marcela Pacaya · 3. Ana Caiza. Peinado (Penteado): 1. Cayler Castillo ·
+                2. Patricia Chávez. Stripping intermedio: 1. Diego García · 2. Sneider Ruiz ·
+                3. Jonatan Seliitto. Asiático intermedio: 1. Yessica Arteaga · 2. Jonnatan Pazpur.
+                Caniche intermedio: 1. Anderson Rodríguez · 2. Raquel Molina · 3. Guillermo Morey.
+                Creativo intermedio: 1. Aura Hernández · 2. Rosa Simbaña.
+              </p>
+              <p>
+                <strong>Categoría Abierta.</strong> Creativo abierto: 1. Raúl Achote.
+              </p>
+              <p>
+                <strong>Categoría Profesional.</strong> Creativo profesional: 1. Dennis Moreno.
+                Caniche profesional: 1. Rudy Ventura · 2. Yudy Machado · 3. Álvaro Reyes.
+                Tijeras profesional: 1. Roberto Viera · 2. Yessica Arteaga. Workshop profesional:
+                1. Víctor Caló · 2. Dany Vergara. Spaniel profesional: 1. Álvaro Reyes ·
+                2. Rudy Ventura · 3. José Viscue. Stripping profesional: 1. Luis Castro ·
+                2. Roberto Viera · 3. Santiago Chuquin.
+              </p>
+              <button class="album-cover" type="button" data-album="congreso-2022" aria-haspopup="dialog">
+                <img src="assets/eventos/congreso-2022-21.jpg" alt="Foto grupal de los asistentes en el salón del 3.er Congreso, con el arreglo floral al frente, Quito, 2022" loading="lazy" />
+                <span class="album-badge">Álbum · 27 fotos</span>
+              </button>
+            </div>
+            <div class="event">
+              <h4>4.º Congreso Internacional de Peluquería Canina — Guayaquil, 2023</h4>
+              <p>
+                Del 6 al 8 de agosto de 2023, en la Finca «La Gloria», ubicada en el Km 52 de
+                la vía a la costa, en Guayaquil: un ambiente campestre y relajado fusionado
+                con el aprendizaje de nuevas técnicas de peluquería canina. Entre los ponentes
+                invitados: Gisela González (Chile), Diego RJ (Colombia) y la educadora
+                ecuatoriana Gabriela Salas. La experiencia incluyó la competencia, las
+                premiaciones y la icónica noche de integración: una fiesta de espuma en las
+                instalaciones de la finca. Además de los lugares por categoría, la competencia
+                entregó premios especiales: Best in Show, Mejor Groomer de la Competencia y
+                Mejor Groomer Revelación.
+              </p>
+              <p class="temario-head">Temario del congreso</p>
+              <ul class="temario">
+                <li>Morfología</li>
+                <li>Cosmetología en mantos lisos, duros y risos</li>
+                <li>Uso de herramientas</li>
+                <li>Uso adecuado de tijeras</li>
+                <li>Técnicas de recuperación de mantos en perros motosos</li>
+                <li>Colorimetría</li>
+                <li>Transformaciones</li>
+                <li>Estilos asiáticos</li>
+                <li>Cómo realizar caritas según los rasgos anatómicos de la mascota</li>
+                <li>Balance y simetría</li>
+                <li>Estilo libre de salón</li>
+                <li>Marketing para peluquería: redes sociales y manejo de clientes conflictivos</li>
+              </ul>
+              <p>
+                El juzgamiento estuvo a cargo de George Goginashvili (Ucrania) y Gisela González
+                (Chile). Goginashvili participó además como ponente, con una clase de
+                posicionamiento correcto de la tijera y un arreglo de raza en caniche gigante.
+                La convocatoria reunió a groomers de cinco naciones: Ecuador, México, Colombia,
+                Perú y Venezuela.
+              </p>
+              <p class="temario-head">Especialidades de los ponentes</p>
+              <ul class="temario">
+                <li><strong>Gisela González:</strong> transformación extrema en grooming comercial y colorimetría aplicada en caniche gigante</li>
+                <li><strong>Diego RJ:</strong> Kerry Blue Terrier</li>
+                <li><strong>Gabriela Salas:</strong> estilo asiático comercial</li>
+                <li><strong>Yares Pajares (Perú):</strong> manejo profesional del cliente</li>
+              </ul>
+              <p>
+                Esta edición incluyó el lanzamiento oficial de la marca <strong>Hyponic</strong> y
+                la participación de Passion Grooming y la Escuela de Peluquería Canina Gabriela Salas.
+              </p>
+              <p class="temario-head">Best in Show 2023</p>
+              <p>
+                1.º Roberto Viera (Ecuador) — Cocker Spaniel · 2.º Alejandro Moreno (Colombia) —
+                Schnauzer · 3.º Cristhiam Chavarro (Colombia) — Bedlington Terrier.
+              </p>
+              <button class="album-cover" type="button" data-album="congreso-2023" aria-haspopup="dialog">
+                <img src="assets/eventos/congreso-2023-1.jpg" alt="Caniche blanco con moño rosa y el pecho teñido de morado durante el 4.º Congreso en Guayaquil, 2023" loading="lazy" />
+                <span class="album-badge">Álbum · 194 fotos</span>
+              </button>
+            </div>
+          </article>
+          <article class="hist-card">
+            <h3>Estados Unidos</h3>
+            <span class="where">La expansión de la marca</span>
+            <div class="event">
+              <h4>Seminario y Taller de Corte Asiático con Gabriela Salas — Brooklyn, Nueva York, 2024</h4>
+              <p>
+                El 10 y 11 de noviembre de 2024, dos días dedicados al estilo asiático con la
+                educadora ecuatoriana Gabriela Salas: anatomía y estructuración corporal,
+                morfología, cosmética y preparación del manto, caritas y expresiones, y
+                variaciones de estilo con toques de color.
+              </p>
+              <button class="album-cover" type="button" data-album="brooklyn-2024" aria-haspopup="dialog">
+                <img src="assets/eventos/brooklyn-2024-1.jpg" alt="Gabriela Salas demuestra la técnica sobre un perro en la mesa mientras las asistentes observan de cerca, Brooklyn 2024" loading="lazy" style="object-position:50% 28%" />
+                <span class="album-badge">Álbum · 17 fotos</span>
+              </button>
+            </div>
+            <div class="event">
+              <h4>Seminario de Peluquería Comercial con Gabriela Salas — Brooklyn, Nueva York, 2025</h4>
+              <p>
+                El 1 de junio de 2025, la educadora ecuatoriana Gabriela Salas presentó en
+                Brooklyn este seminario de peluquería comercial, de plazas limitadas. Su
+                enfoque: técnicas de peluquería comercial para optimizar tiempo y
+                rentabilidad, estrategias de cortes rápidos y eficientes, y técnicas de
+                tijera y máquina. El seminario forma parte de la misma gira de junio de 2025
+                que continuó con los talleres personalizados del 2 al 7 de junio.
+              </p>
+              <button class="album-cover" type="button" data-album="brooklyn-2025-seminario" aria-haspopup="dialog">
+                <img src="assets/eventos/brooklyn-2025-seminario-flyer.jpg" alt="Flyer oficial del Seminario de Peluquería Comercial con Gabriela Salas en Brooklyn, Nueva York, 1 de junio: plazas limitadas" loading="lazy" />
+                <span class="album-badge">Álbum · 17 fotos</span>
+              </button>
+            </div>
+            <div class="event">
+              <h4>Talleres personalizados con Gabriela Salas — Brooklyn, Nueva York, 2025</h4>
+              <p>
+                En junio de 2025, la educadora ecuatoriana Gabriela Salas volvió a Brooklyn
+                con una serie de talleres personalizados, en grupos de 4 personas por fecha.
+                Se ofrecieron tres pares de fechas: 2 y 3, 4 y 5, y 6 y 7 de junio. Las fechas
+                del 2 y 3 de junio se agotaron por completo (<em>sold out</em>). En los
+                talleres, las participantes practicaron también con perros de felting
+                (modelos de práctica) además de trabajar con perros reales.
+              </p>
+              <button class="album-cover" type="button" data-album="brooklyn-2025" aria-haspopup="dialog">
+                <img src="assets/eventos/brooklyn-2025-flyer.jpg" alt="Flyer oficial de los talleres personalizados de Gabriela Salas en Brooklyn, Nueva York: fechas 2 y 3, 4 y 5 y 6 y 7 de junio, 4 personas por fecha" loading="lazy" style="object-position:50% 15%" />
+                <span class="album-badge">Álbum · 17 fotos</span>
+              </button>
+            </div>
+            <div class="event">
+              <h4>Seminario &amp; Taller de Peluquería Comercial con Gabriela Salas — Bridgeport, Connecticut, 2026</h4>
+              <p>
+                El 12 y 13 de mayo de 2026, la educadora ecuatoriana Gabriela Salas llevó a
+                Bridgeport, Connecticut, su seminario &amp; taller de peluquería comercial,
+                de cupos limitados.
+              </p>
+              <button class="album-cover" type="button" data-album="bridgeport-2026" aria-haspopup="dialog">
+                <img src="assets/eventos/bridgeport-2026-flyer.jpg" alt="Flyer oficial del Seminario &amp; Taller de Peluquería Comercial con Gabriela Salas en Bridgeport, Connecticut, 12 y 13 de mayo: plazas limitadas" loading="lazy" />
+                <span class="album-badge">Álbum · 9 fotos</span>
+              </button>
+            </div>
+            <div class="event">
+              <h4>Workshop de Perfeccionamiento en Grooming con Gisela González — Bridgeport, Connecticut, 2026</h4>
+              <p>
+                Curso intensivo de 2 días, el 14 y 15 de septiembre de 2026, en el salón de
+                Blanca Lamar (25 Washington Terrace, Bridgeport, CT): perfeccionamiento de
+                técnicas, prácticas con perros reales y corrección y mejora de acabados.
+              </p>
+              <button class="album-cover" type="button" data-album="workshop-bridgeport-1" aria-haspopup="dialog">
+                <img src="assets/eventos/workshop-bridgeport-2026-flyer-1.jpg" alt="Flyer oficial del Workshop de Perfeccionamiento en Grooming con Gisela González — 14 y 15 de septiembre, 25 Washington Terrace, Bridgeport, CT" loading="lazy" />
+                <span class="album-badge">Álbum · 20 fotos</span>
+              </button>
+            </div>
+            <div class="event">
+              <h4>Masterclass Ecuagroom 2026 — Nueva York, 2026</h4>
+              <p>
+                El 20 de septiembre de 2026, la Masterclass Professional Dog Grooming reunió a
+                groomers de la zona en el Courtyard by Marriott Long Island City
+                (29-15 Queens Plaza North, Long Island City, NY 11101), en una jornada de
+                formación avanzada con Gisela González y el groomer Harry como ponente invitado.
+              </p>
+              <button class="album-cover" type="button" data-album="masterclass-2026" aria-haspopup="dialog">
+                <img src="assets/eventos/masterclass-2026-fb-2.jpg" alt="Demostración con un perro blanco frente a los asistentes de la Masterclass Ecuagroom 2026 en Nueva York" loading="lazy" />
+                <span class="album-badge">Álbum · 40 fotos</span>
+              </button>
+              <div class="event-video" id="masterclass-video">
+                <h5>Video oficial de la Masterclass</h5>
+                <p class="video-cap">Así se vivió la jornada del 20 de septiembre en el Courtyard by Marriott Long Island City.</p>
+                <video controls playsinline preload="metadata" poster="assets/eventos/masterclass-ny-2026-poster.jpg" aria-label="Video oficial de la Masterclass Ecuagroom 2026 en Nueva York">
+                  <source src="assets/eventos/masterclass-ny-2026-web.mp4" type="video/mp4" />
+                  Tu navegador no puede reproducir este video.
+                </video>
+              </div>
+            </div>
+            <div class="event">
+              <h4>Workshop de Perfeccionamiento en Grooming con Gisela González — Bridgeport, Connecticut, 2026</h4>
+              <p>
+                Segunda edición del workshop: curso intensivo de 2 días, el 22 y 23 de
+                septiembre de 2026, en el salón de Blanca Lamar (25 Washington Terrace,
+                Bridgeport, CT): perfeccionamiento de técnicas, prácticas con perros reales
+                y corrección y mejora de acabados.
+              </p>
+              <button class="album-cover" type="button" data-album="workshop-bridgeport-2" aria-haspopup="dialog">
+                <img src="assets/eventos/workshop-bridgeport-2026-flyer-2.jpg" alt="Flyer oficial del Workshop de Perfeccionamiento en Grooming con Gisela González — 22 y 23 de septiembre, 25 Washington Terrace, Bridgeport, CT" loading="lazy" />
+                <span class="album-badge">Álbum · 13 fotos</span>
+              </button>
+            </div>
+            <div class="event">
+              <h4>Taller de Nivelación con Gisela González — Nueva York, 2026</h4>
+              <p>
+                Jornada práctica el 28 de septiembre de 2026: corrección de técnicas, acabados
+                y manejo de herramientas para groomers que ya ejercen y quieren llevar su
+                trabajo a un nivel más profesional. El taller se realizó en un estudio en
+                Queens, Nueva York.
+              </p>
+              <button class="album-cover" type="button" data-album="nivelacion-2026" aria-haspopup="dialog">
+                <img src="assets/eventos/nivelacion-2026-flyer.jpg" alt="Flyer oficial del Taller de Nivelación con Gisela González, Nueva York, 28 de septiembre de 2026" loading="lazy" style="object-position:50% 0%" />
+                <span class="album-badge">Álbum · 12 fotos</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+      </div>
+
+      <!-- ============ PÁGINA: GIRA 2027 ============ -->
+      <div data-page="gira">
+    <!-- ================= GIRA 2027 ================= -->
+    <section id="gira">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="rule"></div>
+          <h2>Gira Ecuagroom EE. UU. — Primavera 2027</h2>
+          <p>
+            Cuatro paradas, un mismo formato probado. Las instructoras de toda la gira son
+            <strong>Blanca Lamar</strong> y <strong>Gisela Gonzalez</strong>. Las fechas exactas se anuncian
+            primero a la lista de espera.
+          </p>
+        </div>
+
+        <div class="cities">
+          <article class="city">
+            <span class="tag">Taller práctico · 2 días</span>
+            <h3>Bridgeport, Connecticut</h3>
+            <p>La casa de Ecuagroom abre la gira: taller íntimo y premium en la ciudad sede de Lamar Grooming Studio y su academia.</p>
+            <button class="pick" data-city="Bridgeport, CT — Taller práctico">Me interesa esta parada</button>
+          </article>
+          <article class="city">
+            <span class="tag">Seminario masivo</span>
+            <h3>Nueva York, NY</h3>
+            <p>El evento grande de la gira: un seminario abierto a toda la comunidad groomer del área tri-estatal. Programa y cupo por anunciar.</p>
+            <button class="pick" data-city="Nueva York, NY — Seminario">Me interesa esta parada</button>
+          </article>
+          <article class="city">
+            <span class="tag">Taller práctico · 2 días</span>
+            <h3>Florida</h3>
+            <p>Taller íntimo y premium en Florida. La ciudad sede se define con la demanda de la lista de espera: tu registro ayuda a decidirla.</p>
+            <button class="pick" data-city="Florida — Taller práctico">Me interesa esta parada</button>
+          </article>
+          <article class="city">
+            <span class="tag">Taller práctico · 2 días</span>
+            <h3>Los Ángeles, California</h3>
+            <p>El cierre de la gira en la costa oeste, con el formato ya pulido en las paradas anteriores.</p>
+            <button class="pick" data-city="Los Ángeles, CA — Taller práctico">Me interesa esta parada</button>
+          </article>
+        </div>
+
+        <div class="format-panel">
+          <div>
+            <h3>Así funciona cada taller</h3>
+            <p>
+              Dos días de práctica intensiva con grupos reducidos, para corregir técnica en vivo y
+              trabajar sobre perros reales. Cada participante recibe su certificado de participación
+              y acceso a la mesa de productos Ecuagroom en el evento.
+            </p>
+          </div>
+          <ul class="format-list">
+            <li><span class="k">Inversión</span><span class="v">$600</span><span class="s">por persona, los 2 días</span></li>
+            <li><span class="k">Cupo</span><span class="v">12 por ciudad</span><span class="s">2 grupos de 6 groomers</span></li>
+            <li><span class="k">Horarios</span><span class="v">9 am – 2 pm · 4 – 9 pm</span><span class="s">grupo mañana o grupo noche</span></li>
+            <li><span class="k">Práctica</span><span class="v">10 horas</span><span class="s">de trabajo guiado en mesa</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- ================= LISTA DE ESPERA ================= -->
+    <section id="lista-espera">
+      <div class="wrap">
+        <div class="waitlist">
+          <h2>Únete a la lista de espera</h2>
+          <p>
+            Los cupos de taller son solo 12 por ciudad. Quienes estén en la lista reciben las fechas
+            y la apertura de inscripciones antes que nadie.
+          </p>
+          <form class="wl" id="wlForm">
+            <div>
+              <label for="f-nombre">Nombre completo</label>
+              <input id="f-nombre" name="nombre" type="text" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="f-ciudad">Parada de interés</label>
+              <select id="f-ciudad" name="ciudad" required>
+                <option value="">Selecciona una parada…</option>
+                <option>Bridgeport, CT — Taller práctico</option>
+                <option>Nueva York, NY — Seminario</option>
+                <option>Florida — Taller práctico</option>
+                <option>Los Ángeles, CA — Taller práctico</option>
+                <option>Otra ciudad / información general</option>
+              </select>
+            </div>
+            <div>
+              <label for="f-correo">Correo electrónico</label>
+              <input id="f-correo" name="correo" type="email" autocomplete="email" required />
+            </div>
+            <div>
+              <label for="f-tel">WhatsApp (opcional)</label>
+              <input id="f-tel" name="telefono" type="tel" autocomplete="tel" />
+            </div>
+            <div class="full">
+              <label for="f-msg">¿Algo que debamos saber? (opcional)</label>
+              <textarea id="f-msg" name="mensaje" placeholder="Tu experiencia, tu salón, la ciudad que propones…"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Quiero mi lugar en la lista</button>
+            <p class="form-note">
+              Al enviar se abre tu correo con el mensaje listo para
+              <strong>info@ecuagroom.com</strong>. Sin spam: solo novedades de la gira.
+            </p>
+          </form>
+          <div class="form-ok" id="formOk">
+            Tu correo quedó listo para enviarse a <strong>info@ecuagroom.com</strong>.
+            Si no se abrió tu aplicación de correo, escríbenos directamente a
+            <a href="mailto:info@ecuagroom.com">info@ecuagroom.com</a> con tu nombre y la parada que te interesa.
+          </div>
+        </div>
+      </div>
+    </section>
+      </div>
+
+      <!-- ============ PÁGINA: FUNDADORA ============ -->
+      <div data-page="fundadora">
+    <!-- ================= FUNDADORA ================= -->
+    <section class="alt" id="fundadora">
+      <div class="wrap split">
+        <figure class="portrait">
+          <img src="assets/blanca-fundadora.jpg" alt="Blanca Lamar sentada en un sillón crema junto al banner de Ecuagroom, con blazer blanco" />
+          <figcaption>Blanca Lamar, fundadora de Ecuagroom</figcaption>
+        </figure>
+        <div class="section-head" style="margin-bottom:0;max-width:52rem">
+          <div class="rule"></div>
+          <h2>Detrás de Ecuagroom: Blanca Lamar</h2>
+          <p style="margin-bottom:14px">
+            Groomer y educadora ecuatoriana radicada en Connecticut. Fundadora de
+            <strong>Lamar Grooming Studio</strong> y <strong>Lamar Grooming Academy</strong> en
+            Bridgeport, CT.
+          </p>
+          <p>
+            Con Ecuagroom, Blanca lleva su experiencia de salón y de aula a los groomers que ya
+            ejercen: formación avanzada, eventos con estándar profesional y una comunidad que
+            crece ciudad a ciudad — con la mira puesta en llevar el modelo Ecuagroom a nuevas
+            sedes en el futuro.
+          </p>
+          <p style="margin-bottom:14px">
+            Su trayectoria: groomer profesional desde <strong>2012</strong> e
+            <strong>Ingeniera Agropecuaria</strong>, fue propietaria de tres veterinarias y
+            peluquerías caninas en Ecuador y en 2017 obtuvo el <strong>primer lugar en la
+            competencia Equinoccio Groom</strong>, en Quito. Fundó Ecuagroom en 2018 y en 2024
+            se trasladó a Estados Unidos. En 2025 abrió <strong>Lamar Grooming Studio</strong>
+            en Connecticut, obtuvo la certificación del <strong>New York City Department of
+            Health and Mental Hygiene</strong> y fundó la <strong>Fundación Estamos
+            Contigo</strong>, cuyo primer seminario gratuito para mujeres migrantes se realizó
+            en agosto de 2025.
+          </p>
+          <p style="margin-bottom:2px"><strong>Formación internacional</strong></p>
+          <ul class="checklist" style="margin-top:4px">
+            <li><strong>2016 · Bogotá:</strong> seminario con Vitor Rosado y Emilia Díaz</li>
+            <li><strong>2017 · Pasto:</strong> seminario con Alexander Zapata</li>
+            <li><strong>2017:</strong> Certificación Nivel 1 y 2 — Asociación Mexicana de Estilistas Caninos Profesionales</li>
+            <li><strong>2018 · Cali:</strong> Congreso Caligroom</li>
+            <li><strong>2023 · Pasto:</strong> seminario con Luis Aparicio</li>
+            <li><strong>2024 · EE. UU.:</strong> capacitación con Victoria Andryushenko</li>
+            <li><strong>2025 · Nueva York:</strong> Qualifying Certificate in Animal Care and Handling Techniques (NYC Department of Health)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- ================= FORMACIÓN ================= -->
+    <section class="alt" id="formacion">
+      <div class="wrap split">
+        <div>
+          <div class="rule"></div>
+          <h2>Formación para cada etapa</h2>
+          <p>
+            <strong>Ecuagroom</strong> es para groomers con experiencia que buscan perfeccionarse.
+            Para quienes empiezan desde cero, la puerta de entrada es
+            <strong>Lamar Grooming Academy</strong> en Bridgeport, CT: el curso profesional de
+            peluquería canina de Blanca Lamar, con ingreso flexible de lunes a sábado.
+          </p>
+          <ul class="checklist">
+            <li><strong>Groomers con experiencia:</strong> talleres y seminarios Ecuagroom.</li>
+            <li><strong>Nuevos groomers:</strong> curso profesional en Lamar Grooming Academy.</li>
+            <li><strong>Salones y equipos:</strong> formación a medida — escríbenos a contact@ecuagroom.com.</li>
+          </ul>
+        </div>
+        <img class="photo" src="assets/eventos/masterclass-2026-extra-9.jpg" alt="Foto grupal de asistentes a la Masterclass Ecuagroom 2026 en Nueva York, junto a la mesa de demostración con un perro recién arreglado" />
+      </div>
+    </section>
+      </div>
+
+      <!-- ============ PÁGINA: PRODUCTOS ============ -->
+      <div data-page="productos">
+    <!-- ================= PRODUCTOS ================= -->
+    <section id="productos">
+      <div class="wrap split" style="grid-template-columns:1fr">
+        <div>
+          <div class="rule"></div>
+          <h2>Herramientas y conocimiento con nombre propio</h2>
+          <img class="tools-logo" src="assets/logo-tijeras-ecuagroom.jpg" alt="Logo oficial de la línea de tijeras Ecuagroom — Professional Grooming Tools: letras plateadas sobre fondo negro, con la «A» estilizada como una tijera con tornillo dorado" loading="lazy" />
+          <p>
+            <strong>Tijeras Ecuagroom.</strong> Nuestra línea de tijeras profesionales para groomers,
+            seleccionada y probada en el salón por Blanca. Están a la venta en cada parada de la gira
+            y por pedido directo.
+          </p>
+          <p>
+            <strong>El manual de Blanca Lamar.</strong> El libro de peluquería canina que reúne su
+            método de trabajo, capítulo a capítulo. Está en producción y se anunciará primero a
+            nuestra comunidad.
+          </p>
+          <div class="hero-ctas" style="margin-top:22px">
+            <a class="btn btn-primary" href="mailto:contact@ecuagroom.com?subject=Cat%C3%A1logo%20de%20tijeras%20Ecuagroom">Solicitar el catálogo de tijeras</a>
+          </div>
+          <p style="font-size:.92rem">Pedidos y disponibilidad: <a href="mailto:contact@ecuagroom.com">contact@ecuagroom.com</a></p>
+        </div>
+      </div>
+    </section>
+      </div>
+
+      <!-- ============ PÁGINA: CONTACTO ============ -->
+      <div data-page="contacto">
+    <!-- ================= CONTACTO ================= -->
+    <section id="contacto">
+      <div class="wrap">
+        <div class="section-head" style="text-align:center;margin-left:auto;margin-right:auto">
+          <div class="rule" style="margin-left:auto;margin-right:auto"></div>
+          <h2>Contacto empresarial</h2>
+          <p>Tres direcciones, un solo equipo. Escríbenos a la que corresponda y te respondemos directamente.</p>
+        </div>
+        <div class="mail-grid">
+          <article class="mail-card">
+            <h3>Dirección</h3>
+            <p>Blanca Lamar, fundadora. Alianzas, invitaciones y propuestas estratégicas.</p>
+            <a class="addr" href="mailto:blamar@ecuagroom.com">blamar@ecuagroom.com</a>
+          </article>
+          <article class="mail-card">
+            <h3>Información e inscripciones</h3>
+            <p>Gira 2027, talleres, seminarios y lista de espera.</p>
+            <a class="addr" href="mailto:info@ecuagroom.com">info@ecuagroom.com</a>
+          </article>
+          <article class="mail-card">
+            <h3>Contacto general</h3>
+            <p>Pedidos de tijeras, productos y contacto comercial en inglés o español.</p>
+            <a class="addr" href="mailto:contact@ecuagroom.com">contact@ecuagroom.com</a>
+          </article>
+        </div>
+        <div class="social-row">
+          <a href="https://www.instagram.com/ecuagroom" target="_blank" rel="noopener">Instagram · @ecuagroom</a>
+          <a href="https://www.facebook.com/ECUAGROOM" target="_blank" rel="noopener">Facebook · Ecuagroom</a>
+        </div>
+      </div>
+    </section>
+      </div>
+    </main>
+
+    <script>
+      // ---------- Navegación por páginas ----------
+      // Cada opción del menú abre su propia página: se muestra solo la página
+      // activa y la dirección cambia (#/eventos, #/gira, #/fundadora...).
+      // Las direcciones antiguas por sección (#eventos, #formacion...) se
+      // traducen a la página que hoy guarda esa sección.
+      var PAGE_TITLES = {
+        inicio: 'Ecuagroom — Educación continua para groomers profesionales',
+        eventos: 'Eventos realizados — Ecuagroom',
+        gira: 'Gira EE. UU. Primavera 2027 — Ecuagroom',
+        fundadora: 'Blanca Lamar, fundadora — Ecuagroom',
+        productos: 'Productos — Ecuagroom',
+        contacto: 'Contacto empresarial — Ecuagroom'
+      };
+      var LEGACY = {
+        'inicio': ['inicio', null], 'marca': ['inicio', null],
+        'eventos': ['eventos', null],
+        'gira': ['gira', null], 'lista-espera': ['gira', 'lista-espera'],
+        'formacion': ['fundadora', null], 'fundadora': ['fundadora', null],
+        'productos': ['productos', null], 'contacto': ['contacto', null]
+      };
+      var pendingScroll = null;
+      function parseRoute() {
+        var h = location.hash.replace(/^#\/?/, '');
+        if (!h) return { page: 'inicio', scroll: null };
+        if (PAGE_TITLES[h]) return { page: h, scroll: null };
+        if (LEGACY[h]) return { page: LEGACY[h][0], scroll: LEGACY[h][1] };
+        return { page: 'inicio', scroll: null };
+      }
+      function renderPage() {
+        var route = parseRoute();
+        var scrollTarget = pendingScroll || route.scroll;
+        pendingScroll = null;
+        document.querySelectorAll('[data-page]').forEach(function (el) {
+          el.style.display = el.getAttribute('data-page') === route.page ? '' : 'none';
+        });
+        document.querySelectorAll('video').forEach(function (v) { v.pause(); });
+        document.querySelectorAll('[data-page-link]').forEach(function (a) {
+          var on = a.getAttribute('data-page-link') === route.page;
+          a.classList.toggle('active', on);
+          if (on) a.setAttribute('aria-current', 'page');
+          else a.removeAttribute('aria-current');
+        });
+        document.title = PAGE_TITLES[route.page];
+        if (scrollTarget) {
+          var t = document.getElementById(scrollTarget);
+          if (t) {
+            t.scrollIntoView();
+            // Las imágenes de carga diferida pueden desplazar el destino al
+            // terminar de cargar; se repite el desplazamiento un momento
+            // después para aterrizar sobre el elemento correcto.
+            var targetId = scrollTarget, targetPage = route.page;
+            setTimeout(function () {
+              var t2 = document.getElementById(targetId);
+              if (t2 && parseRoute().page === targetPage) t2.scrollIntoView();
+            }, 700);
+            return;
+          }
+        }
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+      window.addEventListener('hashchange', renderPage);
+      document.querySelectorAll('[data-scroll-target]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          pendingScroll = a.getAttribute('data-scroll-target');
+          if (location.hash === a.getAttribute('href')) renderPage();
+          else location.hash = a.getAttribute('href');
+        });
+      });
+      renderPage();
+    </script>
+
+    <footer>
+      <div class="wrap">
+        <span class="f-logo"><img src="assets/logo-ecuagroom.jpg" alt="Logo oficial de Ecuagroom: silueta de caniche gris, ECUAGROOM en morado y el lema «Seminarios & Competencias»" /></span>
+        <p>Educación continua y comunidad para groomers profesionales.</p>
+        <p style="margin-top:6px">Bridgeport, Connecticut · <a href="https://ecuagroom.com">ecuagroom.com</a></p>
+        <nav class="f-nav" aria-label="Páginas del sitio">
+          <a href="#/inicio">Inicio</a>
+          <a href="#/eventos">Eventos</a>
+          <a href="#/gira">Gira 2027</a>
+          <a href="#/fundadora">Fundadora</a>
+          <a href="#/productos">Productos</a>
+          <a href="#/contacto">Contacto</a>
+        </nav>
+        <p style="margin-top:10px;font-size:.85rem">© <span id="year">2026</span> Ecuagroom. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- ================= VISOR DE ÁLBUM ================= -->
+    <div class="album-overlay" id="albumOverlay" hidden>
+      <div class="album-backdrop" id="albumBackdrop"></div>
+      <div class="album-panel" role="dialog" aria-modal="true" aria-labelledby="albumTitle">
+        <div class="album-head">
+          <div>
+            <h3 id="albumTitle"></h3>
+            <p id="albumMeta"></p>
+          </div>
+          <button class="album-close" id="albumClose" type="button" aria-label="Cerrar álbum">&times;</button>
+        </div>
+        <p class="album-note" id="albumNote" hidden></p>
+        <div class="album-grid" id="albumGrid"></div>
+        <div class="album-view" id="albumView" hidden>
+          <img id="albumImg" alt="" />
+          <p class="album-cap" id="albumCap"></p>
+          <div class="album-nav">
+            <button type="button" id="albumPrev">&larr; Anterior</button>
+            <span id="albumCount"></span>
+            <button type="button" id="albumNext">Siguiente &rarr;</button>
+          </div>
+          <button type="button" class="album-back" id="albumBack">Volver al álbum</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Año actual en el pie
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Menú móvil
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      links.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          links.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Botones "Me interesa esta parada": preseleccionan la ciudad y bajan al formulario
+      var citySelect = document.getElementById('f-ciudad');
+      document.querySelectorAll('.city .pick').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          citySelect.value = btn.getAttribute('data-city');
+          document.getElementById('lista-espera').scrollIntoView({ behavior: 'smooth' });
+          setTimeout(function () { document.getElementById('f-nombre').focus({ preventScroll: true }); }, 600);
+        });
+      });
+
+      // Lista de espera: compone un correo a info@ecuagroom.com con los datos del formulario
+      document.getElementById('wlForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var nombre = document.getElementById('f-nombre').value.trim();
+        var ciudad = citySelect.value;
+        var correo = document.getElementById('f-correo').value.trim();
+        var tel = document.getElementById('f-tel').value.trim();
+        var msg = document.getElementById('f-msg').value.trim();
+
+        var lines = [
+          'Nombre: ' + nombre,
+          'Parada de interés: ' + ciudad,
+          'Correo: ' + correo
+        ];
+        if (tel) lines.push('WhatsApp: ' + tel);
+        if (msg) lines.push('', 'Mensaje:', msg);
+        lines.push('', 'Quiero recibir las fechas y la apertura de inscripciones de la Gira Ecuagroom 2027.');
+
+        var href = 'mailto:info@ecuagroom.com'
+          + '?subject=' + encodeURIComponent('Lista de espera Gira 2027 — ' + ciudad)
+          + '&body=' + encodeURIComponent(lines.join('\n'));
+
+        document.getElementById('formOk').style.display = 'block';
+        window.location.href = href;
+      });
+
+      // ---------- Álbumes de fotos por evento ----------
+      // Fotos publicadas por @ecuagroom en Instagram y en la página oficial de Facebook,
+      // guardadas como archivos del sitio (las marcadas "-fb-" vienen de Facebook, en tamaño completo).
+      var ALBUMS = {
+        'congreso-2018': {
+          title: '1.er Congreso y Competencia Internacional — Santo Domingo, 2018',
+          meta: 'Santo Domingo, Ecuador · 1 al 3 de julio de 2018',
+          note: 'El flyer oficial abre el álbum; las demás fotos se recuperaron del archivo de la página oficial de Ecuagroom en Facebook.',
+          photos: [
+            { src: 'assets/flyer-primer-congreso-2018.jpg', cap: 'Flyer oficial del 1.er Congreso', alt: 'Flyer oficial del 1.er Congreso y Competencia Internacional de Peluquería Canina — Santo Domingo, Ecuador, 1, 2 y 3 de julio de 2018 — con los ponentes Felipe Corrêa Galharde, Claudio Morales, César Salamanca y Luis Aparicio' },
+            { src: 'assets/eventos/congreso-2018-fb-1.jpg', cap: 'Foto grupal del primer congreso', alt: 'Foto grupal de los asistentes al 1.er Congreso Internacional en el salón de la Cámara de Comercio de Santo Domingo, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-2.jpg', cap: 'Demostración en la mesa rosada', alt: 'Demostración de arreglo de un caniche sobre la mesa rosada, frente a la pancarta del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-3.jpg', cap: 'Caniche de exposición en la mesa', alt: 'Caniche blanco de exposición sobre la mesa rosada durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-4.jpg', cap: 'Trabajo de tijera en la demostración', alt: 'Un groomer trabaja un caniche blanco en la mesa durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-5.jpg', cap: 'La comunidad del primer congreso', alt: 'Grupo de asistentes posa junto a un caniche blanco frente a la pancarta del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-6.jpg', cap: 'El escenario del congreso', alt: 'Vista del público hacia el escenario del 1.er Congreso en el salón de conferencias, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-7.jpg', cap: 'El público del primer congreso', alt: 'Asistentes ocupando las sillas del salón durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-8.jpg', cap: 'Ponentes y equipo en el escenario', alt: 'Ponentes y equipo del 1.er Congreso de pie frente al público, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-9.jpg', cap: 'Aplausos en el escenario', alt: 'Participantes aplaudiendo en el escenario del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-10.jpg', cap: 'Entre el público del congreso', alt: 'Un asistente con el salón del congreso detrás, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-11.jpg', cap: 'Selfie de asistentes', alt: 'Grupo de asistentes se toma una selfie durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-12.jpg', cap: 'Participantes con su perro', alt: 'Tres participantes posan con un perro sobre la mesa durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-13.jpg', cap: 'Demostración con schnauzer', alt: 'Un ponente sostiene un schnauzer durante una demostración del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-14.jpg', cap: 'Taller práctico del congreso', alt: 'Una participante junto a un shih tzu en la mesa durante el taller práctico del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-15.jpg', cap: 'Práctica en la mesa', alt: 'Participantes trabajando un caniche en la mesa con sus herramientas durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-16.jpg', cap: 'Un participante y su caniche', alt: 'Un participante sostiene un caniche blanco con moño turquesa, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-17.jpg', cap: 'West highland en demostración', alt: 'West Highland Terrier blanco sobre la mesa de demostración con el mantel de Colombia Casa Grooming, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-18.jpg', cap: 'El trofeo junto al Cocker Spaniel de la ganadora del Best in Show', alt: 'El trofeo de la competencia junto al Cocker Spaniel de la ganadora del Best in Show, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-19.jpg', cap: 'El público durante una demostración', alt: 'Público asistente atento durante una demostración del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-20.jpg', cap: 'Tres perros en el escenario', alt: 'Escenario del congreso con tres perros sobre las mesas de competencia, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-21.jpg', cap: 'Participante con su shih tzu', alt: 'Una participante sostiene un Shih Tzu durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-22.jpg', cap: 'Shih tzu con flor roja', alt: 'Shih Tzu terminado con una flor roja sobre la mesa, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-23.jpg', cap: 'Escenario con auspiciantes', alt: 'Escenario del congreso con los banners de los auspiciantes y un caniche con tinte creativo, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-24.jpg', cap: 'Los finalistas en el escenario', alt: 'Grupo en el escenario con los tres perros finalistas de la competencia, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-25.jpg', cap: 'Podio de la competencia: Schnauzer, Cocker Spaniel y Bouvier des Flandres', alt: 'Podio de la competencia con un Schnauzer, un Cocker Spaniel negro y un Bouvier des Flandres sobre las mesas, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-26.jpg', cap: 'Sala de competencia con las mesas de trabajo', alt: 'Sala de competencia con las mesas de trabajo durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-27.jpg', cap: 'Vista amplia de la sala durante la competencia', alt: 'Vista amplia de la sala durante la competencia del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-28.jpg', cap: 'Presentación del Bouvier des Flandres', alt: 'Presentación del Bouvier des Flandres en la competencia del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-29.jpg', cap: 'Los tres perros finalistas en el escenario', alt: 'Los tres perros finalistas sobre las mesas del escenario, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-30.jpg', cap: 'Participantes con un Poodle blanco', alt: 'Participantes junto a un Poodle blanco durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-31.jpg', cap: 'Asistentes junto al stand de Passion Grooming', alt: 'Asistentes junto al stand de Passion Grooming durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-32.jpg', cap: 'Participante sonriendo con su Poodle blanco', alt: 'Una participante sonríe junto a su Poodle blanco durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-33.jpg', cap: 'La ganadora del Best in Show presentando su Cocker Spaniel ante el público', alt: 'La ganadora del Best in Show presentando su Cocker Spaniel ante el público del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-34.jpg', cap: 'Participante cargando a su Poodle entre el público', alt: 'Una participante carga a su Poodle entre el público del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-35.jpg', cap: 'Ponente junto al público asistente', alt: 'Un ponente junto al público asistente durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-36.jpg', cap: 'Participantes mostrando sus certificados del congreso', alt: 'Participantes muestran sus certificados del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-37.jpg', cap: 'Grupo en el podio con perros pequeños', alt: 'Grupo en el podio con perros pequeños durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-38.jpg', cap: 'Poodle blanco con pompones teñidos de naranja', alt: 'Poodle blanco con pompones teñidos de naranja sobre la mesa, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-39.jpg', cap: 'Demostración con un Schnauzer en mesa', alt: 'Demostración con un Schnauzer sobre la mesa durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-40.jpg', cap: 'Groomer sosteniendo un Poodle con tinte amarillo y naranja', alt: 'Un groomer sostiene un Poodle con tinte amarillo y naranja durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-41.jpg', cap: 'Participante con un cachorro blanco y negro', alt: 'Una participante junto a un cachorro blanco y negro durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-42.jpg', cap: 'Grupo de participantes posando en el salón', alt: 'Grupo de participantes posa en el salón durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-43.jpg', cap: 'Dos participantes del congreso', alt: 'Dos participantes del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-44.jpg', cap: 'Presentación del Poodle con tinte creativo', alt: 'Presentación del Poodle con tinte creativo amarillo y naranja durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-45.jpg', cap: 'Mesa de exhibición y venta de herramientas de grooming', alt: 'Mesa de exhibición y venta de herramientas de grooming durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-46.jpg', cap: 'Demostración del agarre de la tijera a una participante', alt: 'Un ponente demuestra el agarre de la tijera a una participante durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-47.jpg', cap: 'Participante mostrando su certificado junto a dos ponentes', alt: 'Una participante muestra su certificado junto a dos ponentes del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-48.jpg', cap: 'Dos participantes del congreso', alt: 'Dos participantes del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-49.jpg', cap: 'Selfie grupal de ponentes con el público', alt: 'Selfie grupal de ponentes con el público detrás, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-50.jpg', cap: 'Schnauzer sobre la mesa mientras ajustan su postura', alt: 'Un Schnauzer sobre la mesa mientras ajustan su postura, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-51.jpg', cap: 'Schnauzer presentado en el escenario', alt: 'Un Schnauzer presentado en el escenario del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-52.jpg', cap: 'Participante presentando su Schnauzer gris', alt: 'Una participante presenta su Schnauzer gris durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-53.jpg', cap: 'Schnauzer sentado en la mesa con collar rojo', alt: 'Un Schnauzer sentado en la mesa con collar rojo, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-54.jpg', cap: 'Schnauzer en pose de competencia', alt: 'Un Schnauzer en pose de competencia sobre la mesa, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-55.jpg', cap: 'Presentación de un Scottish Terrier color trigo', alt: 'Presentación de un Scottish Terrier color trigo sobre la mesa, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-56.jpg', cap: 'Salida grupal nocturna del congreso', alt: 'Salida grupal nocturna de participantes durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-57.jpg', cap: 'Participante presentando un Poodle blanco', alt: 'Un participante presenta un Poodle blanco durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-58.jpg', cap: 'Dos participantes con sus gafetes del congreso', alt: 'Dos participantes con sus gafetes del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-59.jpg', cap: 'Junto al banner del 1er Congreso', alt: 'Dos participantes junto al banner del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-60.jpg', cap: 'Grupo con un certificado frente a los banners', alt: 'Grupo de participantes con un certificado frente a los banners del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-61.jpg', cap: 'Dos ponentes con chaquetas de academia', alt: 'Dos ponentes con chaquetas de academia durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-62.jpg', cap: 'El Cocker Spaniel negro en la mesa de competencia', alt: 'El Cocker Spaniel negro sobre la mesa de competencia durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-63.jpg', cap: 'El Bouvier des Flandres sentado de frente sobre la mesa', alt: 'El Bouvier des Flandres sentado de frente sobre la mesa durante la competencia del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-64.jpg', cap: 'La ganadora del Best in Show con su Cocker Spaniel', alt: 'La ganadora del Best in Show presenta su Cocker Spaniel durante la competencia del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-65.jpg', cap: 'El Bouvier de perfil en la sala de competencia', alt: 'El Bouvier des Flandres de perfil en la sala de competencia del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-66.jpg', cap: 'La ganadora del Best in Show prepara a su Cocker Spaniel en la mesa', alt: 'La ganadora del Best in Show prepara a su Cocker Spaniel en la mesa durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-67.jpg', cap: 'La ganadora del Best in Show junto a su Cocker Spaniel', alt: 'La ganadora del Best in Show junto a su Cocker Spaniel durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-68.jpg', cap: 'Salón lleno durante una demostración en el escenario', alt: 'Salón del congreso lleno durante una demostración en el escenario del 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-69.jpg', cap: 'Cepillado de un perro blanco de pelo largo', alt: 'Un ponente cepilla un perro blanco de pelo largo sobre la mesa fucsia durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-70.jpg', cap: 'Un ponente observa la demostración', alt: 'Un ponente de espaldas observa la demostración durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-71.jpg', cap: 'West Highland White Terrier ya arreglado', alt: 'Un instructor junto al West Highland White Terrier ya arreglado sobre la mesa fucsia, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-72.jpg', cap: 'Primer plano del Westie junto a las herramientas', alt: 'Primer plano del West Highland White Terrier junto a las herramientas de trabajo, durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-73.jpg', cap: 'Proyección con ejemplos de trabajos de grooming', alt: 'Proyección con ejemplos de trabajos de grooming durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-74.jpg', cap: 'Fotografiando a un poodle con moño y collar decorativo', alt: 'Fotografiando con el celular a un poodle con moño y collar decorativo durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-75.jpg', cap: 'Perrito blanco con tinte creativo y moño rosado', alt: 'Perrito blanco con tinte creativo y moño rosado durante el 1.er Congreso, 2018' },
+            { src: 'assets/eventos/congreso-2018-fb-76.jpg', cap: 'Tinte creativo con figura de pollito sobre el manto', alt: 'Trabajo de tinte creativo con figura de pollito sobre el manto, junto a la gorra y la máscara del disfraz, durante el 1.er Congreso, 2018' }
+          ]
+        },
+        'congreso-2019': {
+          title: '2.º Congreso Internacional — Santo Domingo, 2019',
+          meta: 'Cámara de Comercio de Santo Domingo · 30 de junio al 2 de julio de 2019',
+          photos: [
+            { src: 'assets/eventos/congreso-2019-1.jpg', cap: 'Flyer oficial del congreso', alt: 'Flyer oficial del 2.º Congreso Internacional de Peluquería Canina (Santo Domingo, 2019) con los seis ponentes invitados' },
+            { src: 'assets/eventos/congreso-2019-2.jpg', cap: 'Emilia Díaz · España', alt: 'Emilia Díaz (España), ponente del 2.º Congreso, junto a tres cachorros blancos' },
+            { src: 'assets/eventos/congreso-2019-3.jpg', cap: 'Michael Zhang · China', alt: 'Michael Zhang (China), ponente del 2.º Congreso' },
+            { src: 'assets/eventos/congreso-2019-4.jpg', cap: 'Roberto Nugnes · Argentina', alt: 'Roberto Nugnes (Argentina) trabajando un perro blanco en la mesa de grooming' },
+            { src: 'assets/eventos/congreso-2019-5.jpg', cap: '1.ª Competencia Oficial en Ecuador', alt: 'Arte de la 1.ª Competencia Oficial de Peluquería Canina en Ecuador, con Emilia Díaz y Roberto Nugnes' },
+            { src: 'assets/eventos/congreso-2019-6.jpg', cap: 'Pieza promocional del congreso', alt: 'Yorkshire terrier en primer plano en una pieza promocional del 2.º Congreso' },
+            { src: 'assets/eventos/congreso-2019-fb-1.jpg', cap: 'Foto grupal del 2.º Congreso', alt: 'Foto grupal de asistentes y equipo del 2.º Congreso Internacional en Santo Domingo, 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-2.jpg', cap: 'Entrega de certificados', alt: 'Entrega de un certificado a un participante junto a su caniche blanco, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-3.jpg', cap: 'Certificado de competencia', alt: 'Un participante recibe su certificado con su caniche negro en la mesa, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-4.jpg', cap: 'Participante certificada', alt: 'Blanca Lamar entrega un certificado a una participante con su perro blanco, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-5.jpg', cap: 'Entrega de certificado', alt: 'Blanca Lamar entrega un certificado a un participante junto a su cocker spaniel, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-6.jpg', cap: 'Taller práctico: trabajo en mesa', alt: 'Participantes del taller práctico trabajan un shih tzu en la mesa, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-7.jpg', cap: 'Corrección de técnica en el taller', alt: 'Instructores y participantes trabajan sobre un perro en la mesa durante el taller práctico, 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-8.jpg', cap: 'El salón del taller práctico', alt: 'Vista del salón del taller práctico con varios perros en las mesas, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-9.jpg', cap: 'Práctica en la mesa', alt: 'Dos participantes trabajan con sus perros en la mesa durante el taller práctico, 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-10.jpg', cap: 'Revisión de un caniche', alt: 'Participantes revisan un caniche blanco sobre la mesa, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-11.jpg', cap: 'Perros del taller práctico', alt: 'Participantes posan con un caniche negro y un cachorro blanco en la mesa, 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-12.jpg', cap: 'Acabado en la mesa', alt: 'Una participante observa mientras se da el acabado a un caniche blanco en la mesa, 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-13.jpg', cap: 'Carita terminada', alt: 'Primer plano de un perro blanco y crema recién arreglado, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-14.jpg', cap: 'Tijera en caniche gris', alt: 'Primer plano del trabajo de tijera en la cabeza de un caniche gris, 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-15.jpg', cap: 'Acabado del hocico', alt: 'Primer plano del recorte del hocico de un caniche blanco, 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-16.jpg', cap: 'Color en el lomo', alt: 'Caniche blanco con el lomo teñido de colores durante el 2.º Congreso, 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-17.jpg', cap: 'Foto grupal de participantes con sus certificados', alt: 'Foto grupal de participantes con sus certificados frente al fondo de auspiciantes del 2.º Congreso, 2019' },
+            { src: 'assets/eventos/congreso-2019-fb-18.jpg', cap: 'Junto a un Kerry Blue Terrier y un perro de estilo asiático', alt: 'Dos participantes junto a un Kerry Blue Terrier y un perro de estilo asiático durante el 2.º Congreso, 2019' },
+            { src: 'assets/eventos/congreso-2019-7.jpg', cap: 'Salida grupal en bus', alt: 'Grupo de asistentes del 2.º Congreso dentro de un bus durante la salida grupal, 2019' },
+            { src: 'assets/eventos/congreso-2019-8.jpg', cap: 'Tres asistentes en la cabaña', alt: 'Tres asistentes del 2.º Congreso en una cabaña con techo de palma, 2019' },
+            { src: 'assets/eventos/congreso-2019-9.jpg', cap: 'Demostración con un terrier', alt: 'Demostración con un terrier gris sobre la mesa frente al fondo de auspiciantes, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-10.jpg', cap: 'Ponencia junto a la proyección', alt: 'Ponente con micrófono explicando junto a la proyección durante el 2.º Congreso, 2019' },
+            { src: 'assets/eventos/congreso-2019-11.jpg', cap: 'Ponencia entre los auspiciantes', alt: 'Ponente con micrófono entre los banners de los auspiciantes, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-12.jpg', cap: 'Al bajar del escenario', alt: 'Asistentes y equipo al bajar del escenario durante el 2.º Congreso, 2019' },
+            { src: 'assets/eventos/congreso-2019-13.jpg', cap: 'Momento de reflexión en el escenario', alt: 'Grupo en el escenario en un momento de reflexión durante el 2.º Congreso, 2019' },
+            { src: 'assets/eventos/congreso-2019-14.jpg', cap: 'Ponentes y equipo en el escenario', alt: 'Grupo de ponentes y equipo posando en el escenario del 2.º Congreso, 2019' },
+            { src: 'assets/eventos/congreso-2019-15.jpg', cap: 'Ponente tras la mesa de Ecuagroom', alt: 'Un ponente del equipo hablando detrás de la mesa de Ecuagroom, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-16.jpg', cap: 'Una ponente del equipo', alt: 'Una ponente del equipo sonriendo durante el 2.º Congreso, 2019' },
+            { src: 'assets/eventos/congreso-2019-17.jpg', cap: 'Presentación del perrito de estilo asiático', alt: 'El ponente invitado presentando el perrito de estilo asiático con encaje rosado, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-18.jpg', cap: 'Ponencia sobre el estilo Teddy', alt: 'El ponente explicando junto a su proyección sobre el estilo Teddy, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-19.jpg', cap: 'Ponente frente a los auspiciantes', alt: 'El ponente hablando frente al fondo de auspiciantes del 2.º Congreso, 2019' },
+            { src: 'assets/eventos/congreso-2019-20.jpg', cap: 'El ponente junto a la presentadora', alt: 'El ponente junto a la presentadora en el escenario del 2.º Congreso, 2019' },
+            { src: 'assets/eventos/congreso-2019-21.jpg', cap: 'Ajustando al Kerry Blue y al perrito asiático', alt: 'Dos personas ajustando al Kerry Blue Terrier y al perrito de estilo asiático, 2.º Congreso 2019' },
+            { src: 'assets/eventos/congreso-2019-22.jpg', cap: 'Selfie del congreso', alt: 'Selfie de tres personas durante el 2.º Congreso, 2019' }
+          ]
+        },
+        'congreso-2022': {
+          title: '3.er Congreso Internacional — Quito, 2022',
+          meta: 'Colegio de Médicos Veterinarios de Pichincha, Quito · 27 al 29 de noviembre de 2022',
+          photos: [
+            { src: 'assets/eventos/congreso-2022-21.jpg', cap: 'Foto grupal de los asistentes en el salón del congreso', alt: 'Foto grupal de los asistentes en el salón del 3.er Congreso, con el arreglo floral al frente, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-17.jpg', cap: 'Diego RJ, Blanca Lamar, Sonia Luengo, Yeiner Mayo, Claudio Morales', alt: 'Blanca Lamar, de blusa negra y falda beige, junto a los ponentes del congreso en las escaleras de la sede del 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-1.jpg', cap: 'Foto grupal del congreso', alt: 'Foto grupal de participantes y equipo frente al banner del 3.er Congreso Internacional en Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-2.jpg', cap: 'Ganadores de la competencia', alt: 'Ganadores de la competencia del 3.er Congreso posando con sus perros sobre las mesas de Ecuagroom' },
+            { src: 'assets/eventos/congreso-2022-3.jpg', cap: 'Yeiner Mayo · Colombia', alt: 'Yeiner Mayo (Colombia) junto a un caniche blanco de exposición' },
+            { src: 'assets/eventos/congreso-2022-4.jpg', cap: 'Claudio Morales · Chile', alt: 'Claudio Morales (Chile) junto a un perro de manto largo en la mesa' },
+            { src: 'assets/eventos/congreso-2022-5.jpg', cap: 'Premios Grooming Ecuador', alt: 'Arte dorado de los Premios Grooming Ecuador' },
+            { src: 'assets/eventos/congreso-2022-6.jpg', cap: 'Técnica en detalle', alt: 'Trabajo de tijera sobre el manto de un pomerania, pieza del 3.er Congreso' },
+            { src: 'assets/eventos/congreso-2022-7.jpg', cap: 'Podio de Principiantes: primer lugar con un Poodle blanco', alt: 'Podio de Principiantes del 3.er Congreso: el primer lugar con un Poodle blanco sobre la mesa, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-8.jpg', cap: 'Demostración con un Poodle estándar blanco', alt: 'Demostración de arreglo de un Poodle estándar blanco durante el 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-9.jpg', cap: 'Ponente junto al Poodle estándar terminado', alt: 'Una ponente posa junto al Poodle estándar blanco terminado, durante el 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-10.jpg', cap: 'Acabados finales del Poodle estándar en la mesa', alt: 'Acabados finales del Poodle estándar blanco sobre la mesa, durante el 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-11.jpg', cap: 'Ganadores de la categoría Caniches, nivel Intermedios: 1.º, 2.º y 3.er lugar', alt: 'Ganadores de la categoría Caniches, nivel Intermedios, del 3.er Congreso, con sus Poodles estándar sobre las mesas del podio, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-12.jpg', cap: 'El Cocker Spaniel ganador del Best in Show, de perfil sobre la mesa', alt: 'El Cocker Spaniel ganador del Best in Show del 3.er Congreso, de perfil sobre la mesa, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-13.jpg', cap: 'El Cocker Spaniel ganador del Best in Show del congreso', alt: 'El Cocker Spaniel ganador del Best in Show presentado sobre la mesa durante el 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-14.jpg', cap: 'Participante presentando un perro blanco de manto esponjoso', alt: 'Una participante presenta un perro blanco de manto esponjoso durante el 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-15.jpg', cap: 'Acabados con tijera a un Poodle estándar gris', alt: 'Acabados con tijera a un Poodle estándar gris sobre la mesa durante el 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-16.jpg', cap: 'Demostración de arreglo de un Poodle estándar blanco', alt: 'Una ponente presenta un Poodle estándar blanco sobre la mesa durante el 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-18.jpg', cap: 'Fila de Poodles estándar en la sala de competencia', alt: 'Fila de Poodles estándar sobre las mesas en la sala de competencia del 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-19.jpg', cap: 'Poodle estándar gris en el podio del 1.er Lugar Profesionales', alt: 'Un Poodle estándar gris sobre la mesa del 1.er Lugar Profesionales del 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-20.jpg', cap: 'Un Schnauzer gigante y un Schnauzer miniatura frente al banner del congreso', alt: 'Un Schnauzer gigante negro y un Schnauzer miniatura presentados frente al banner del 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-22.jpg', cap: 'Los dos Schnauzers frente al banner, en encuadre cerrado', alt: 'Un Schnauzer gigante negro y un Schnauzer miniatura gris presentados frente al banner del 3.er Congreso, en una toma de encuadre más cerrado, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-23.jpg', cap: 'Ajustando la postura del Schnauzer gigante', alt: 'El presentador ajusta la postura del Schnauzer gigante negro junto al banner de Tot Pet durante el 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-24.jpg', cap: 'El presentador junto al Schnauzer gigante presentado', alt: 'El presentador sonríe junto al Schnauzer gigante negro ya presentado, frente al banner del 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-25.jpg', cap: 'Un Pomerania crema sobre la mesa del congreso', alt: 'El presentador con un Pomerania crema sobre la mesa durante el 3.er Congreso, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-26.jpg', cap: 'Ponencia de Claudio Morales sobre pelo duro', alt: 'Cuatro personas con las chaquetas de Ecuagroom frente al banner del 3.er Congreso, junto a la proyección «Pelo duro» de la ponencia de Claudio Morales, Quito, 2022' },
+            { src: 'assets/eventos/congreso-2022-27.jpg', cap: 'Antes y después en la ponencia de Claudio Morales', alt: 'Díptico antes y después de la transformación de un Kerry Blue Terrier en la ponencia de Claudio Morales, 3.er Congreso, Quito, 2022' }
+          ]
+        },
+        'congreso-2023': {
+          title: '4.º Congreso Internacional — Guayaquil, 2023',
+          meta: 'Finca La Gloria, Km 52 de la vía a la costa, Guayaquil · 6 al 8 de agosto de 2023',
+          photos: [
+            { src: 'assets/eventos/congreso-2023-1.jpg', cap: 'Color y estilo en competencia', alt: 'Caniche blanco con moño rosa y el pecho teñido de morado durante el 4.º Congreso en Guayaquil, 2023' },
+            { src: 'assets/eventos/congreso-2023-2.jpg', cap: 'Competencia en la Finca La Gloria', alt: 'Dos groomers presentan un caniche crema sobre la mesa durante la competencia del 4.º Congreso en la Finca La Gloria' },
+            { src: 'assets/eventos/congreso-2023-3.jpg', cap: 'Flyer oficial de la 4.ª edición', alt: 'Flyer oficial de la 4.ª edición de Ecuagroom 2023 en Guayaquil con sus ponentes' },
+            { src: 'assets/eventos/congreso-2023-4.jpg', cap: 'Gabriela Salas · Ecuador', alt: 'Gabriela Salas (Ecuador) sosteniendo un poodle gris' },
+            { src: 'assets/eventos/congreso-2023-5.jpg', cap: 'Gisela González · Chile', alt: 'Gisela González (Chile) con las tijeras en mano' },
+            { src: 'assets/eventos/congreso-2023-6.jpg', cap: 'Competencias de Grooming 2023', alt: 'Arte de las Competencias de Grooming 2023, clasificatorias a la Copa América 2024' },
+            { src: 'assets/eventos/congreso-2023-fb-1.jpg', cap: 'El escenario de la Finca La Gloria', alt: 'Escenario dorado de Ecuagroom con el logo circular en la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-2.jpg', cap: 'Ponencia en el escenario', alt: 'Una ponente se dirige al público en el escenario dorado de Ecuagroom, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-3.jpg', cap: 'El salón de la Finca La Gloria', alt: 'Asistentes en las mesas con manteles amarillos de la Finca La Gloria durante el 4.º Congreso, 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-4.jpg', cap: 'Mesas listas para el congreso', alt: 'El salón de la Finca La Gloria preparado con mesas amarillas antes del 4.º Congreso, 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-5.jpg', cap: 'Demostración en el escenario', alt: 'Demostración en vivo con un perro rizado sobre la mesa del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-6.jpg', cap: 'Presentación en el escenario dorado', alt: 'Una participante presenta un perro rizado sobre la mesa dorada del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-7.jpg', cap: 'Equipo y ponentes del 4.º Congreso', alt: 'Equipo y ponentes de Ecuagroom posan con sus carpetas frente al fondo dorado, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-8.jpg', cap: 'Junto al logo de Ecuagroom', alt: 'Una ponente sostiene un caniche crema frente al logo circular de Ecuagroom, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-9.jpg', cap: 'Participantes del congreso', alt: 'Cuatro participantes con delantales de Ecuagroom en la Finca La Gloria, 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-10.jpg', cap: 'El equipo en Guayaquil', alt: 'Dos integrantes del equipo Ecuagroom con las camisetas oficiales en Guayaquil, 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-11.jpg', cap: 'Un corazón de pelo', alt: 'Un corazón formado con pelo de perro sobre el suelo de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-12.jpg', cap: 'El público del 4.º Congreso', alt: 'Asistentes siguen las ponencias desde las mesas amarillas de la Finca La Gloria, 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-13.jpg', cap: 'Competidor: Luis Castro', alt: 'Tarjeta de bienvenida del competidor Luis Castro, Competencias de Grooming 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-14.jpg', cap: 'Competidor: Michael Chicaiza', alt: 'Tarjeta de bienvenida del competidor Michael Chicaiza, Competencias de Grooming 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-15.jpg', cap: 'Competidora: Tannya Siguenza', alt: 'Tarjeta de bienvenida de la competidora Tannya Siguenza, Competencias de Grooming 2023' },
+            { src: 'assets/eventos/congreso-2023-fb-16.jpg', cap: 'Competidor: Juan Marcelo Mora', alt: 'Tarjeta de bienvenida del competidor Juan Marcelo Mora, Competencias de Grooming 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-1.jpg', cap: 'Un ponente en el puente de la finca', alt: 'Un ponente posa en un puente de madera rodeado de árboles en la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-2.jpg', cap: 'Llegada de ponentes a Guayaquil', alt: 'Tres ponentes con su equipaje en el área de llegadas internacionales del aeropuerto de Guayaquil, 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-3.jpg', cap: 'En el restaurante campestre de la finca', alt: 'Tres personas comparten en el restaurante campestre de techo de paja de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-4.jpg', cap: 'Bienvenida en el aeropuerto', alt: 'Una ponente llega al aeropuerto de Guayaquil con un globo y flores, junto a su maleta, 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-5.jpg', cap: 'Noche en la Finca La Gloria', alt: 'Selfie nocturna junto al letrero de la Finca La Gloria con un perro blanco, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-6.jpg', cap: 'Brindis en la playa, vía a la costa', alt: 'Brindis al atardecer en la playa con una copa con el logo de Ecuagroom y dos perros sentados en la arena, uno con el pelaje teñido de rosado, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-7.jpg', cap: 'El escenario del congreso', alt: 'Escenario del 4.º Congreso con las letras doradas de Ecuagroom, los sillones dorados del jurado y el número 1 de premiación, Finca La Gloria 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-8.jpg', cap: 'La competencia en el galpón de la finca', alt: 'Competidores trabajando en sus mesas bajo el galpón de la Finca La Gloria, con las banderas de los países participantes al fondo, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-9.jpg', cap: 'El piso de competencia', alt: 'Vista del piso de competencia con varios groomers trabajando a la vez en la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-10.jpg', cap: 'Trabajo en mesa durante la competencia', alt: 'Una competidora trabaja con su perro sobre la mesa durante la competencia del 4.º Congreso, con el público y más mesas detrás, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-11.jpg', cap: 'Pasillo central de la competencia', alt: 'Pasillo central del piso de competencia con mesas numeradas a ambos lados bajo el galpón de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-12.jpg', cap: 'Poodles de competencia', alt: 'Poodles blancos de competencia sobre las mesas, vista amplia del galpón de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-13.jpg', cap: 'Competidora con su perro', alt: 'Una competidora sonríe junto a su perro blanco sobre la mesa 27 durante la competencia del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-14.jpg', cap: 'Los premios especiales de la competencia', alt: 'Escarapelas oficiales moradas y doradas de la competencia: Best in Show, Mejor Groomer de la Competencia y Mejor Groomer Revelación, agosto 2023, Guayaquil' },
+            { src: 'assets/eventos/congreso-2023-extra-15.jpg', cap: 'La mesa de premiación', alt: 'Mesa de premiación con las cintas de los ganadores de la competencia sobre mantel amarillo y los banners de los auspiciantes detrás, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-17.jpg', cap: 'Demostración en escenario: poodle sobre la mesa con mantel dorado', alt: 'Demostración en escenario con un poodle gris sobre la mesa con mantel dorado de Ecuagroom, junto al banner de HYPONIC, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-18.jpg', cap: 'Clases en el salón del evento, con escenario y pizarra', alt: 'Vista del salón del 4.º Congreso con tres presentadoras en el escenario, pizarra, banderas de los países participantes y público en mesas amarillas tomando notas, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-19.jpg', cap: 'Vista amplia del salón durante las sesiones', alt: 'Vista amplia del salón de la Finca La Gloria con el público en mesas amarillas mirando al escenario durante las sesiones del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-extra-20.jpg', cap: 'Convivencia en el restaurante de la finca', alt: 'Foto grupal de participantes sonriendo en el restaurante de techo de paja de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-1.jpg', cap: 'El poodle de la demostración, ya arreglado', alt: 'Poodle crema ya arreglado sobre la mesa de la demostración, frente al logo circular de Ecuagroom, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-2.jpg', cap: 'Almuerzo al aire libre bajo los árboles de la finca', alt: 'Participantes compartiendo el almuerzo en una mesa redonda al aire libre, bajo los árboles de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-3.jpg', cap: 'Un participante con su wire fox terrier en el salón del congreso', alt: 'Un participante sentado en el salón del congreso sostiene con correa a su wire fox terrier blanco y marrón, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-4.jpg', cap: 'Demostración en escenario con un perro negro sobre la mesa dorada', alt: 'Un ponente presenta un perro negro sobre la mesa con mantel dorado del escenario, entre arreglos florales y los banners de los auspiciantes, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-5.jpg', cap: 'Junto al poodle standard de tinte rosado en el escenario', alt: 'Dos personas posan en el escenario junto a un poodle standard con el pelaje teñido de rosado, frente a los banners de los auspiciantes, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-6.jpg', cap: 'Noche junto a la piscina de la finca', alt: 'Un participante sentado a la orilla de la piscina iluminada de la Finca La Gloria durante la noche, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-7.jpg', cap: 'La fiesta de espuma de la Noche de Integración', alt: 'Una participante con su banda del congreso posa entre la espuma junto a la piscina durante la fiesta de la Noche de Integración, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-8.jpg', cap: 'Participantes con los delantales del congreso', alt: 'Cinco participantes con los delantales negros de Ecuagroom posan bajo el galpón de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-9.jpg', cap: 'El poodle rosado de la demostración, en el escenario', alt: 'Dos personas posan junto al poodle rosado de la demostración, sobre la mesa con mantel dorado del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-10.jpg', cap: 'La arboleda de la finca, sede del congreso', alt: 'Arboleda de árboles altos de la Finca La Gloria con mesas dispuestas bajo su sombra, sede del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-11.jpg', cap: 'Recuperación de manto: baño de un perrito motoso', alt: 'Baño de un perrito con el manto muy motoso durante la sesión de recuperación de manto, con un frasco de cosmética HYPONIC en primer plano, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-recorte-12.jpg', cap: 'Grooming creativo: poodle rosado sobre la mesa dorada', alt: 'Una ponente junto al poodle de grooming creativo con el pelaje teñido de rosado, sobre la mesa con mantel dorado del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-7.jpg', cap: 'Registro de asistentes', alt: 'Una asistente coloca la pulsera de registro a un participante en la mesa de acreditación del 4.º Congreso, Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-8.jpg', cap: 'Acreditación del primer día', alt: 'Colocación de pulseras a los asistentes durante el registro del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-9.jpg', cap: 'El salón listo para recibir', alt: 'El salón de la Finca La Gloria preparado con mesas amarillas y el escenario al fondo antes del inicio, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-10.jpg', cap: 'La mesa del escenario', alt: 'Mesa del escenario con mantel dorado y arreglo floral frente al logo de Ecuagroom, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-11.jpg', cap: 'Posando en el escenario', alt: 'Dos integrantes del equipo posan en el escenario del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-14.jpg', cap: 'Los kits de bienvenida', alt: 'Mochilas y kits de bienvenida de Ecuagroom listos para entregar a los asistentes, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-15.jpg', cap: 'Obsequios para los asistentes', alt: 'Bolsas de obsequio de los auspiciantes sobre una mesa del salón, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-16.jpg', cap: 'Kits del congreso', alt: 'Detalle de los kits de bienvenida apilados para los asistentes del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-17.jpg', cap: 'Stand de HYPONIC', alt: 'Stand del auspiciante HYPONIC con su línea de productos en el 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-18.jpg', cap: 'Productos de los auspiciantes', alt: 'Mesa de productos de los auspiciantes con una asistente, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-19.jpg', cap: 'Mesa de herramientas y productos', alt: 'Mesa de venta de herramientas y productos de grooming durante el congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-20.jpg', cap: 'Frente al escenario', alt: 'Participantes frente al escenario del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-21.jpg', cap: 'Foto grupal en el escenario', alt: 'Foto grupal del equipo y ponentes sobre el escenario del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-22.jpg', cap: 'El equipo del 4.º Congreso', alt: 'Integrantes del equipo Ecuagroom posan durante el congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-23.jpg', cap: 'Foto grupal frente al logo', alt: 'Participantes y equipo posan frente al logo circular de Ecuagroom, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-24.jpg', cap: 'Participantes con sus kits', alt: 'Foto grupal de participantes con los kits del congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-25.jpg', cap: 'Integrantes del equipo', alt: 'Dos integrantes del equipo Ecuagroom frente al escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-26.jpg', cap: 'Junto al banner de Dispet', alt: 'Dos asistentes posan junto al banner del auspiciante Dispet, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-27.jpg', cap: 'El público en el salón', alt: 'Asistentes sentados en las mesas amarillas del salón de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-28.jpg', cap: 'Asistentes en las ponencias', alt: 'Público atento en el salón durante las sesiones del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-29.jpg', cap: 'Entrega de delantales', alt: 'Una asistente recibe ayuda para colocarse el delantal oficial del congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-30.jpg', cap: 'Con el delantal del congreso', alt: 'Una participante con el delantal de Ecuagroom junto a su mesa, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-31.jpg', cap: 'Demostración en el escenario', alt: 'Una ponente presenta un poodle gris sobre la mesa dorada del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-32.jpg', cap: 'Arreglo del poodle en vivo', alt: 'Detalle de la demostración con el poodle gris sobre la mesa del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-33.jpg', cap: 'Ponencia en el escenario', alt: 'Una ponente con micrófono de diadema durante su ponencia, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-34.jpg', cap: 'Ponentes en el escenario', alt: 'Dos ponentes sobre el escenario del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-35.jpg', cap: 'El poodle de la demostración', alt: 'Poodle gris sobre la mesa dorada durante la demostración en escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-36.jpg', cap: 'Demostración junto al banner', alt: 'Demostración con el poodle frente al banner de Dispet en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-37.jpg', cap: 'Vista amplia del salón', alt: 'Vista amplia del salón de la Finca La Gloria con el público en las mesas, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-38.jpg', cap: 'El poodle rosado entre el público', alt: 'Poodle con el pelaje teñido de rosado sentado entre las sillas del salón, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-39.jpg', cap: 'Poodle rosado en el pasillo', alt: 'El poodle de grooming creativo de pie en el pasillo del salón, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-40.jpg', cap: 'Práctica con el poodle', alt: 'Una groomer trabaja con el poodle gris en una mesa de práctica, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-41.jpg', cap: 'Junto al banner de los auspiciantes', alt: 'Una ponente posa junto al banner de Dispet, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-42.jpg', cap: 'Demostración en la mesa dorada', alt: 'Ponente junto al poodle gris sobre la mesa dorada del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-43.jpg', cap: 'Demostración en el escenario dorado', alt: 'Vista de la demostración con el poodle sobre la mesa dorada y el arreglo floral del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-44.jpg', cap: 'En el stand de Dispet', alt: 'Una asistente junto al stand del auspiciante Dispet, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-45.jpg', cap: 'Foto grupal en el escenario', alt: 'Cuatro integrantes posan junto al poodle de la demostración en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-46.jpg', cap: 'Práctica guiada con poodle crema', alt: 'Una participante sostiene un poodle crema sobre la mesa durante la práctica guiada, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-47.jpg', cap: 'Secado en la práctica', alt: 'Secado y cepillado del poodle crema durante la práctica, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-48.jpg', cap: 'Práctica con asistentes', alt: 'Participantes rodean la mesa durante la práctica de peluquería, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-49.jpg', cap: 'Detalle del trabajo en mesa', alt: 'Detalle del arreglo de las patas del poodle durante la práctica guiada, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-50.jpg', cap: 'Práctica al aire libre', alt: 'Práctica de grooming al aire libre bajo el galpón de la finca, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-51.jpg', cap: 'Participantes en la práctica', alt: 'Dos participantes con un perrito blanco sobre la mesa de práctica, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-52.jpg', cap: 'Presentación en la práctica', alt: 'Una participante presenta el poodle blanco sobre la mesa durante la práctica, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-53.jpg', cap: 'El escenario durante las ponencias', alt: 'Vista del escenario del galpón durante las ponencias del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-54.jpg', cap: 'Vista del escenario y el público', alt: 'El escenario y el público en el galpón de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-55.jpg', cap: 'Banderas de los países participantes', alt: 'Las banderas de los países participantes sobre el escenario del congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-56.jpg', cap: 'Ponencia vista desde el público', alt: 'Una ponencia vista desde las mesas del público, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-57.jpg', cap: 'El público atento en el salón', alt: 'Asistentes atentos en las mesas amarillas durante las sesiones, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-58.jpg', cap: 'El ponente entre el público', alt: 'Un ponente se dirige a los asistentes entre las mesas del salón, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-59.jpg', cap: 'Asistentes en las mesas amarillas', alt: 'Vista del público en las mesas amarillas de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-60.jpg', cap: 'Jornada de ponencias', alt: 'Jornada de ponencias en el salón del 4.º Congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-61.jpg', cap: 'El escenario con los auspiciantes', alt: 'El escenario con los banners de los auspiciantes HYPONIC y Dispet, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-62.jpg', cap: 'Ponencia en el escenario principal', alt: 'Un ponente en el escenario principal frente al público, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-63.jpg', cap: 'Ponente en el escenario', alt: 'Un ponente durante su presentación en el escenario del congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-64.jpg', cap: 'Ponencia en el escenario dorado', alt: 'Ponencia frente al logo circular de Ecuagroom en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-65.jpg', cap: 'Práctica al aire libre con el equipo', alt: 'Participantes comparten la práctica al aire libre junto a un perrito sobre la mesa, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-66.jpg', cap: 'Secado del poodle blanco', alt: 'Secado con secador del poodle blanco durante la práctica, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-67.jpg', cap: 'Cepillado y estirado del manto', alt: 'Cepillado y estirado del manto del poodle blanco en la práctica, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-68.jpg', cap: 'Arreglo del poodle blanco', alt: 'Arreglo del poodle blanco sobre la mesa de práctica, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-69.jpg', cap: 'Secado en la práctica guiada', alt: 'Una groomer seca el poodle blanco durante la práctica guiada, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-70.jpg', cap: 'Fotografiando la práctica', alt: 'Una asistente fotografía con su teléfono al poodle de la práctica, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-71.jpg', cap: 'El poodle de la práctica', alt: 'El poodle blanco sobre la mesa junto a una integrante del equipo Ecuagroom, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-72.jpg', cap: 'Área de almuerzo bajo la arboleda', alt: 'Mesas con manteles blancos y azules bajo la arboleda de la Finca La Gloria para el almuerzo, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-73.jpg', cap: 'Mesas al aire libre en la finca', alt: 'El comedor al aire libre entre los árboles de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-74.jpg', cap: 'El comedor de la finca', alt: 'Vista del área de almuerzo dispuesta bajo los árboles, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-75.jpg', cap: 'Bajo la sombra de la arboleda', alt: 'Mesas del almuerzo bajo la sombra de la arboleda de la finca, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-76.jpg', cap: 'La arboleda de la Finca La Gloria', alt: 'Otra vista del comedor al aire libre de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-77.jpg', cap: 'El almuerzo de los asistentes', alt: 'Servicio del almuerzo para los asistentes del congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-78.jpg', cap: 'Almuerzo en la finca', alt: 'Un plato del almuerzo servido en la Finca La Gloria durante el congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-79.jpg', cap: 'Asistentes en la arboleda', alt: 'Asistentes reunidos entre los árboles de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-80.jpg', cap: 'El comedor al aire libre', alt: 'Vista amplia del comedor al aire libre con los asistentes, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-81.jpg', cap: 'Demostración con Kerry Blue Terrier', alt: 'Un ponente presenta un Kerry Blue Terrier negro sobre la mesa dorada del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-82.jpg', cap: 'El Kerry Blue en la mesa dorada', alt: 'El Kerry Blue Terrier sobre la mesa dorada junto al banner de Dispet, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-83.jpg', cap: 'Presentación del Kerry Blue', alt: 'El ponente sostiene al Kerry Blue Terrier durante la demostración, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-84.jpg', cap: 'El ponente junto al Kerry Blue', alt: 'El ponente junto al Kerry Blue Terrier junto al arreglo floral del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-85.jpg', cap: 'Arreglo del Kerry Blue', alt: 'Arreglo del Kerry Blue Terrier durante la demostración en escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-86.jpg', cap: 'El público sigue la demostración', alt: 'El público observa la demostración desde las mesas del salón, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-87.jpg', cap: 'Detalle del arreglo en escenario', alt: 'Detalle del trabajo sobre la cabeza del Kerry Blue durante la demostración, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-88.jpg', cap: 'Cepillado del Kerry Blue', alt: 'Cepillado del Kerry Blue Terrier sobre la mesa dorada, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-89.jpg', cap: 'Preparación en la mesa dorada', alt: 'El ponente prepara al Kerry Blue sobre la mesa del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-90.jpg', cap: 'Acomodando al Kerry Blue', alt: 'El ponente acomoda al Kerry Blue Terrier para la demostración, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-91.jpg', cap: 'Secado durante la demostración', alt: 'Secado del Kerry Blue Terrier durante la demostración en escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-92.jpg', cap: 'El poodle standard crema', alt: 'Un poodle standard crema de manto abundante en el salón del congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-93.jpg', cap: 'Poodle standard en el salón', alt: 'El poodle standard crema de pie en el salón de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-94.jpg', cap: 'El Kerry Blue en el escenario', alt: 'El Kerry Blue Terrier sobre la mesa dorada entre los arreglos florales, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-95.jpg', cap: 'Trabajo de patas en la demostración', alt: 'Trabajo de cepillado en las patas del Kerry Blue durante la demostración, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-96.jpg', cap: 'El Kerry Blue ya arreglado', alt: 'El ponente posa con el Kerry Blue Terrier ya arreglado en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-97.jpg', cap: 'Cierre de la demostración', alt: 'El ponente celebra el cierre de su demostración en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-98.jpg', cap: 'El resultado final', alt: 'El ponente presenta con las tijeras el resultado final del arreglo, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-99.jpg', cap: 'Demostración finalizada', alt: 'Demostración finalizada con el Kerry Blue sobre la mesa dorada, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-100.jpg', cap: 'El Kerry Blue de perfil', alt: 'El Kerry Blue Terrier arreglado, de perfil sobre la mesa dorada, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-101.jpg', cap: 'Resultado del arreglo', alt: 'Resultado del arreglo del Kerry Blue visto desde otro ángulo del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-102.jpg', cap: 'El poodle rosado en el escenario', alt: 'El poodle rosado de grooming creativo sobre la mesa dorada del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-103.jpg', cap: 'Arreglo del poodle rosado', alt: 'Una ponente trabaja el manto del poodle rosado en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-104.jpg', cap: 'Asistentes en las mesas del salón', alt: 'Asistentes en las mesas amarillas con productos de los auspiciantes, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-105.jpg', cap: 'El público durante las sesiones', alt: 'El público escucha las sesiones desde las mesas del salón, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-106.jpg', cap: 'Demostración con productos', alt: 'Demostración en el escenario con pantalla y mesa de productos, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-107.jpg', cap: 'Presentación del poodle rosado', alt: 'Presentación del poodle rosado sobre la mesa del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-108.jpg', cap: 'El poodle rosado sobre la mesa', alt: 'El poodle rosado asegurado sobre la mesa de demostración, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-109.jpg', cap: 'Cepillado del poodle rosado', alt: 'Dos personas cepillan el manto del poodle rosado en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-110.jpg', cap: 'Explicación junto al poodle rosado', alt: 'Explicación técnica junto al poodle rosado sobre la mesa, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-111.jpg', cap: 'El poodle rosado de frente', alt: 'El poodle rosado de grooming creativo visto de frente sobre la mesa dorada, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-112.jpg', cap: 'Posando frente al escenario', alt: 'Dos asistentes posan frente al escenario con el poodle rosado detrás, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-113.jpg', cap: 'Arreglo del copete del poodle', alt: 'Arreglo del copete del poodle rosado durante la demostración, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-114.jpg', cap: 'Detalle del arreglo del poodle rosado', alt: 'Detalle del trabajo en la cabeza del poodle rosado, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-115.jpg', cap: 'Mesa de productos en la jornada', alt: 'Asistentes junto a una mesa de productos durante la jornada del congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-116.jpg', cap: 'Convivencia en el congreso', alt: 'Asistentes comparten en una mesa durante el congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-117.jpg', cap: 'El poodle rosado sobre la mesa dorada', alt: 'El poodle rosado de perfil sobre la mesa dorada del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-118.jpg', cap: 'Presentación en el escenario', alt: 'Una asistente junto al escenario durante la presentación del poodle rosado, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-119.jpg', cap: 'Cepillado en el escenario', alt: 'Cepillado del poodle rosado frente al banner de Dispet, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-120.jpg', cap: 'Demostración de grooming creativo', alt: 'Demostración de grooming creativo con el poodle rosado y el banner de HYPONIC, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-121.jpg', cap: 'Junto al poodle rosado', alt: 'Una asistente posa junto al poodle rosado de la demostración, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-122.jpg', cap: 'El ponente junto al poodle rosado', alt: 'La ponente junto al poodle rosado sobre la mesa dorada, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-123.jpg', cap: 'El poodle rosado de perfil', alt: 'El poodle rosado de grooming creativo de perfil en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-124.jpg', cap: 'Foto grupal de los asistentes', alt: 'Foto grupal de los asistentes de pie en el salón del congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-125.jpg', cap: 'Poodle crema en la mesa de práctica', alt: 'Un poodle crema sobre la mesa durante la presentación en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-126.jpg', cap: 'Presentación del poodle crema', alt: 'Una ponente presenta el poodle crema sobre la mesa, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-127.jpg', cap: 'Arreglo del poodle crema', alt: 'Arreglo de la cabeza del poodle crema sobre la mesa, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-128.jpg', cap: 'La ponente con el poodle crema', alt: 'La ponente abraza al poodle crema ya presentado, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-129.jpg', cap: 'Junto al poodle de la presentación', alt: 'La ponente junto al poodle crema sobre la mesa del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-130.jpg', cap: 'El poodle crema en el escenario', alt: 'El poodle crema durante su presentación en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-131.jpg', cap: 'Presentación del poodle crema', alt: 'Presentación del poodle crema frente al logo de Ecuagroom, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-132.jpg', cap: 'El poodle crema ya arreglado', alt: 'El poodle crema ya arreglado sobre la mesa de presentación, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-133.jpg', cap: 'Un cachorro frente al logo', alt: 'Una asistente sostiene un cachorro blanco frente al logo circular de Ecuagroom, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-134.jpg', cap: 'Participante con su Welsh Terrier', alt: 'Un participante arrodillado junto a su Welsh Terrier en los jardines de la finca, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-135.jpg', cap: 'El Welsh Terrier en la finca', alt: 'Un participante con su Welsh Terrier entre la vegetación de la Finca La Gloria, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-136.jpg', cap: 'El poodle standard en el escenario', alt: 'Un ponente sostiene al poodle standard crema sobre la mesa del escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-137.jpg', cap: 'Entrevista durante la demostración', alt: 'Entrevista con micrófono durante la demostración del poodle standard, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-138.jpg', cap: 'Ponentes en el galpón', alt: 'Dos ponentes con micrófonos en el escenario del galpón, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-139.jpg', cap: 'Presentación en el escenario', alt: 'Presentación en el escenario con los ponentes y una asistente, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-140.jpg', cap: 'Demostración desde el público', alt: 'La demostración del poodle standard vista desde el público, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-141.jpg', cap: 'La demostración en el escenario principal', alt: 'Vista de la demostración en el escenario principal del galpón, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-142.jpg', cap: 'Un Pomerania entre el público', alt: 'Un Pomerania asoma desde su bolso transportador entre el público, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-143.jpg', cap: 'El Pomerania asistente', alt: 'El Pomerania en su bolso durante la jornada del congreso, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-144.jpg', cap: 'Aplausos en la presentación', alt: 'Los ponentes reciben aplausos durante la presentación en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-145.jpg', cap: 'Presentación del poodle standard crema', alt: 'Un ponente presenta al poodle standard crema sobre la mesa, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-146.jpg', cap: 'Demostración con el poodle standard', alt: 'Demostración con el poodle standard crema y entrevista en el escenario, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-147.jpg', cap: 'El poodle standard en exposición', alt: 'El poodle standard crema en posición de exposición sobre la mesa, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-148.jpg', cap: 'Vista amplia de la demostración', alt: 'Vista amplia de la demostración en el escenario del galpón, Guayaquil 2023' },
+            { src: 'assets/eventos/congreso-2023-149.jpg', cap: 'Recorte de precisión', alt: 'Recorte de precisión con tijeras en la cara del poodle durante la demostración, Guayaquil 2023' },
+          ]
+        },
+        'brooklyn-2024': {
+          title: 'Seminario y Taller de Corte Asiático con Gabriela Salas — Brooklyn, 2024',
+          meta: 'Pawz-R-Us, Brooklyn, Nueva York · 10 y 11 de noviembre de 2024',
+          photos: [
+            { src: 'assets/eventos/brooklyn-2024-flyer.jpg', cap: 'Flyer oficial del seminario', alt: 'Flyer oficial del Seminario y Taller de Corte Asiático con Gabriela Salas, 10 y 11 de noviembre' },
+            { src: 'assets/eventos/brooklyn-2024-1.jpg', cap: 'Demostración en el taller práctico', alt: 'Gabriela Salas demuestra la técnica sobre un perro en la mesa mientras las asistentes observan de cerca, Brooklyn 2024' },
+            { src: 'assets/eventos/brooklyn-2024-2.jpg', cap: 'Sede: Pawz-R-Us, Brooklyn', alt: 'Flyer del seminario con la sede: Pawz-R-Us, Brooklyn, NY, 10 y 11 de noviembre de 2024' },
+            { src: 'assets/eventos/brooklyn-2024-3.jpg', cap: 'Taller práctico: Sold Out', alt: 'Flyer del taller práctico de corte asiático con Gabriela Salas con el sello de cupos agotados' },
+            { src: 'assets/eventos/brooklyn-2024-4.jpg', cap: 'Práctica de baño en el workshop', alt: 'Una participante baña a un perro durante el workshop Ecuagroom 2024 en Brooklyn' },
+            { src: 'assets/eventos/brooklyn-2024-fb-1.jpg', cap: 'El grupo del seminario', alt: 'Foto grupal de las asistentes al seminario de Gabriela Salas en Brooklyn, 2024' },
+            { src: 'assets/eventos/brooklyn-2024-fb-2.jpg', cap: 'Sesión en el salón', alt: 'Las asistentes siguen la sesión en el salón durante el seminario de Brooklyn, 2024' },
+            { src: 'assets/eventos/brooklyn-2024-fb-3.jpg', cap: 'Demostración de grooming creativo', alt: 'Demostración frente al fondo de Ecuagroom con un modelo caracterizado, Brooklyn 2024' },
+            { src: 'assets/eventos/brooklyn-2024-fb-4.jpg', cap: 'Color y fantasía en la mesa', alt: 'Trabajo de grooming creativo sobre un perro blanco en la mesa, Brooklyn 2024' },
+            { src: 'assets/eventos/brooklyn-2024-fb-5.jpg', cap: 'La ponente con el perro terminado', alt: 'La ponente posa junto al perro de grooming creativo ya terminado sobre la mesa HYPONIC, Brooklyn 2024' },
+            { src: 'assets/eventos/brooklyn-2024-fb-6.jpg', cap: 'Asistentes con el perro terminado', alt: 'Dos asistentes posan con el perro terminado sobre la mesa rosada HYPONIC, Brooklyn 2024' },
+            { src: 'assets/eventos/brooklyn-2024-fb-7.jpg', cap: 'Foto con el resultado del taller', alt: 'Asistentes posan junto al perro de grooming creativo sobre la mesa HYPONIC, Brooklyn 2024' },
+            { src: 'assets/eventos/brooklyn-2024-fb-8.jpg', cap: 'Recuerdo del taller práctico', alt: 'Un grupo de asistentes posa con el perro terminado en el taller de Brooklyn, 2024' },
+            { src: 'assets/eventos/brooklyn-2024-fb-9.jpg', cap: 'Con el perro terminado', alt: 'Asistentes junto al perro blanco de grooming creativo sobre la mesa HYPONIC, Brooklyn 2024' },
+            { src: 'assets/eventos/brooklyn-2024-fb-10.jpg', cap: 'Foto de recuerdo en la mesa HYPONIC', alt: 'Dos asistentes posan con el perro terminado sobre la mesa rosada, Brooklyn 2024' },
+            { src: 'assets/eventos/brooklyn-2024-fb-11.jpg', cap: 'Asistentes y el trabajo final', alt: 'Dos asistentes junto al perro de grooming creativo ya terminado, Brooklyn 2024' },
+            { src: 'assets/eventos/brooklyn-2024-fb-12.jpg', cap: 'El resultado del taller', alt: 'Asistentes posan con el perro terminado sobre la mesa HYPONIC, Brooklyn 2024' }
+          ]
+        },
+        'brooklyn-2025-seminario': {
+          title: 'Seminario de Peluquería Comercial con Gabriela Salas — Brooklyn, 2025',
+          meta: 'Brooklyn, Nueva York · 1 de junio de 2025',
+          photos: [
+            { src: 'assets/eventos/brooklyn-2025-seminario-flyer.jpg', cap: 'Flyer oficial del seminario', alt: 'Flyer oficial del Seminario de Peluquería Comercial con Gabriela Salas en Brooklyn, Nueva York, 1 de junio: plazas limitadas' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-1.jpg', cap: 'Foto grupal con certificados al cierre del seminario', alt: 'Foto grupal de las participantes con sus certificados al cierre del seminario de Gabriela Salas en Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-2.jpg', cap: 'Entrega de certificado entre los banners de Ecuagroom', alt: 'Entrega de un certificado a una participante entre los banners de Ecuagroom, seminario de Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-3.jpg', cap: 'Entrega de certificados del seminario', alt: 'Participantes reciben sus certificados durante el seminario de peluquería comercial en Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-4.jpg', cap: 'Milo, el modelo de la demostración, sobre la mesa rosa', alt: 'Milo, el perro modelo de la demostración, sobre la mesa rosa durante el seminario de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-5.jpg', cap: 'Gabriela Salas peinando a Milo en la mesa Hyponic', alt: 'Gabriela Salas peina a Milo sobre la mesa Hyponic durante la demostración del seminario, Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-6.jpg', cap: 'El público sigue la demostración desde sus mesas', alt: 'El público del seminario sigue la demostración de Gabriela Salas desde sus mesas, Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-7.jpg', cap: 'Gabriela Salas posa con Milo frente al banner de Ecuagroom', alt: 'Gabriela Salas posa con Milo frente al banner de Ecuagroom, seminario de Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-8.jpg', cap: 'Foto grupal junto a la mesa de demostración', alt: 'Foto grupal de participantes junto a la mesa de demostración del seminario de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-9.jpg', cap: 'Chuba, poodle estilo asiático, listo sobre la mesa', alt: 'Chuba, poodle de estilo asiático, listo sobre la mesa durante el seminario de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-10.jpg', cap: 'Chuba con su moño rosa junto a Gabriela Salas', alt: 'Chuba con su moño rosa junto a Gabriela Salas durante el seminario de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-11.jpg', cap: 'El salón durante la primera ponencia del seminario', alt: 'Vista del salón durante la primera ponencia del seminario de peluquería comercial, Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-12.jpg', cap: 'Gabriela Salas trabaja con Chuba en la mesa hidráulica', alt: 'Gabriela Salas trabaja con Chuba sobre la mesa hidráulica ante el público del seminario, Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-13.jpg', cap: 'Recorte a tijera de la cabeza de Chuba ante el público', alt: 'Recorte a tijera de la cabeza de Chuba durante la demostración ante el público, Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-14.jpg', cap: 'Trabajo en equipo durante la demostración con Chuba', alt: 'Trabajo en equipo durante la demostración con Chuba en el seminario de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-15.jpg', cap: 'Gabriela Salas sostiene a Chuba frente al banner de Ecuagroom', alt: 'Gabriela Salas sostiene a Chuba frente al banner de Ecuagroom, seminario de Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-seminario-16.jpg', cap: 'Chuba terminado, con su moño rosa, al cierre de la demostración', alt: 'Chuba ya terminado, con su moño rosa, al cierre de la demostración del seminario de Brooklyn, 2025' }
+          ]
+        },
+        'brooklyn-2025': {
+          title: 'Talleres personalizados con Gabriela Salas — Brooklyn, 2025',
+          meta: 'Brooklyn, Nueva York · Junio de 2025',
+          photos: [
+            { src: 'assets/eventos/brooklyn-2025-flyer.jpg', cap: 'Flyer oficial de los talleres personalizados', alt: 'Flyer oficial de los talleres personalizados con Gabriela Salas en Brooklyn, Nueva York: fechas disponibles 2 y 3, 4 y 5 y 6 y 7 de junio, 4 personas por fecha' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-1.jpg', cap: 'Participante con su perro de felting de orejas de colores', alt: 'Una participante posa con su perro de felting de orejas de colores durante los talleres de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-2.jpg', cap: 'Perro de felting con orejas azules y moradas', alt: 'Perro de felting con las orejas teñidas de azul y morado, modelo de práctica de los talleres de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-3.jpg', cap: 'Participante con su modelo de práctica entre los banners', alt: 'Una participante con su modelo de práctica entre los banners del taller, Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-4.jpg', cap: 'Instrucción en las mesas durante el taller', alt: 'Instrucción en las mesas durante los talleres personalizados de Gabriela Salas en Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-5.jpg', cap: 'Práctica de corte sobre el perro de felting', alt: 'Práctica de corte sobre el perro de felting durante los talleres de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-6.jpg', cap: 'Trabajo de felting en la mesa de práctica', alt: 'Trabajo de felting sobre la mesa de práctica durante los talleres de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-7.jpg', cap: 'Detalle del recorte en el modelo de felting', alt: 'Detalle del recorte en el modelo de felting durante los talleres personalizados, Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-8.jpg', cap: 'Foto con Gabriela Salas entre los banners del taller', alt: 'Foto con Gabriela Salas entre los banners de los talleres personalizados, Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-9.jpg', cap: 'Participante y Gabriela Salas con un perro de felting', alt: 'Una participante y Gabriela Salas con un perro de felting durante los talleres de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-10.jpg', cap: 'Cierre de jornada entre los banners de Ecuagroom y Estamos Contigo', alt: 'Cierre de jornada de los talleres entre los banners de Ecuagroom y Estamos Contigo, Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-11.jpg', cap: 'Foto grupal de cierre del taller', alt: 'Foto grupal de las participantes al cierre de los talleres personalizados en Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-12.jpg', cap: 'Participantes con sus perros de felting al cierre', alt: 'Participantes posan con sus perros de felting al cierre de los talleres de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-13.jpg', cap: 'Participante con su modelo de felting frente al banner', alt: 'Una participante con su modelo de felting frente al banner del taller, Brooklyn 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-14.jpg', cap: 'Poodle real terminado, con su pañuelo azul', alt: 'Poodle real terminado, con su pañuelo azul, durante los talleres personalizados de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-15.jpg', cap: 'Poodle negro terminado en brazos de su groomer', alt: 'Poodle negro ya terminado en brazos de su groomer durante los talleres de Brooklyn, 2025' },
+            { src: 'assets/eventos/brooklyn-2025-talleres-16.jpg', cap: 'Poodle crema terminado sobre la mesa de trabajo', alt: 'Poodle crema terminado sobre la mesa de trabajo de los talleres personalizados, Brooklyn 2025' }
+          ]
+        },
+        'bridgeport-2026': {
+          title: 'Seminario & Taller de Peluquería Comercial con Gabriela Salas — Bridgeport, 2026',
+          meta: 'Bridgeport, Connecticut · 12 y 13 de mayo de 2026',
+          photos: [
+            { src: 'assets/eventos/bridgeport-2026-flyer.jpg', cap: 'Flyer oficial del seminario & taller', alt: 'Flyer oficial del Seminario & Taller de Peluquería Comercial con Gabriela Salas en Bridgeport, Connecticut, 12 y 13 de mayo: plazas limitadas' },
+            { src: 'assets/eventos/bridgeport-2026-1.jpg', cap: 'Foto grupal con certificados frente a la pared de Lamar Grooming Academy', alt: 'Foto grupal de las participantes con sus certificados frente a la pared de Lamar Grooming Academy, Bridgeport 2026' },
+            { src: 'assets/eventos/bridgeport-2026-2.jpg', cap: 'Entrega de certificado con un perro blanco terminado', alt: 'Entrega de un certificado junto a un perro blanco ya terminado, seminario de Bridgeport 2026' },
+            { src: 'assets/eventos/bridgeport-2026-3.jpg', cap: 'Participantes con su certificado y un yorkshire en la mesa', alt: 'Participantes con su certificado y un yorkshire sobre la mesa, Bridgeport 2026' },
+            { src: 'assets/eventos/bridgeport-2026-4.jpg', cap: 'Certificado y perro terminado junto al banner de Ecuagroom', alt: 'Una participante con su certificado y su perro terminado junto al banner de Ecuagroom, Bridgeport 2026' },
+            { src: 'assets/eventos/bridgeport-2026-5.jpg', cap: 'Participantes con su certificado y un poodle gris', alt: 'Participantes con su certificado y un poodle gris durante el seminario de Bridgeport, 2026' },
+            { src: 'assets/eventos/bridgeport-2026-6.jpg', cap: 'Entrega de certificado con un perro blanco en la mesa', alt: 'Entrega de un certificado con un perro blanco sobre la mesa, Bridgeport 2026' },
+            { src: 'assets/eventos/bridgeport-2026-7.jpg', cap: 'Participantes con su certificado y su perro terminado', alt: 'Participantes posan con su certificado y su perro terminado en el seminario de Bridgeport, 2026' },
+            { src: 'assets/eventos/bridgeport-2026-8.jpg', cap: 'Cierre con certificado frente a la pared de la academia', alt: 'Una participante con su certificado frente a la pared de Lamar Grooming Academy al cierre del seminario, Bridgeport 2026' }
+          ]
+        },
+        'workshop-bridgeport-1': {
+          title: 'Workshop de Perfeccionamiento en Grooming con Gisela González — Bridgeport, 2026',
+          meta: '25 Washington Terrace, Bridgeport, CT · 14 y 15 de septiembre de 2026',
+          photos: [
+            { src: 'assets/eventos/workshop-bridgeport-2026-flyer-1.jpg', cap: 'Flyer oficial del workshop', alt: 'Flyer oficial del Workshop de Perfeccionamiento en Grooming con Gisela González — curso intensivo de 2 días, 14 y 15 de septiembre, 25 Washington Terrace, Bridgeport, CT' },
+            { src: 'assets/eventos/workshop-bridgeport-1-01.jpg', cap: 'Sesión teórica en el salón', alt: 'Las participantes escuchan la sesión teórica en el salón de Lamar Grooming Academy, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-02.jpg', cap: 'Demostración práctica frente al grupo', alt: 'Demostración práctica con un perro sobre la mesa durante el workshop en Bridgeport, 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-03.jpg', cap: 'Participante con su perro en la academia', alt: 'Una participante sostiene a su perro frente a la pared de Lamar Grooming Academy, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-04.jpg', cap: 'Perro terminado junto al banner de Ecuagroom', alt: 'Una participante presenta un perro blanco terminado junto al banner de Ecuagroom, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-05.jpg', cap: 'Práctica de color en la mesa de trabajo', alt: 'Práctica de colorimetría sobre un yorkshire en la mesa de trabajo, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-06.jpg', cap: 'Trabajo de color terminado', alt: 'Tres participantes presentan un perro blanco con una franja de color terminada, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-07.jpg', cap: 'Resultado de colorimetría en un poodle', alt: 'Poodle blanco con colorimetría en tonos turquesa y amarillo sobre la mesa, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-08.jpg', cap: 'Corrección de acabados durante la práctica', alt: 'Dos participantes corrigen los acabados de un perro pequeño durante la práctica, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-09.jpg', cap: 'Participante con su perro terminado', alt: 'Una participante abraza a su perro terminado junto al banner de Ecuagroom, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-10.jpg', cap: 'Práctica simultánea en las mesas del salón', alt: 'Vista general del salón con varias mesas trabajando al mismo tiempo, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-11.jpg', cap: 'Práctica con perros reales en el salón', alt: 'Participantes trabajan con perros reales durante el workshop, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-12.jpg', cap: 'Entrega de certificados del workshop', alt: 'Entrega de un certificado con el perro terminado sobre la mesa, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-13.jpg', cap: 'Foto grupal con los certificados', alt: 'Foto grupal de las participantes con sus certificados frente a la pared de Lamar Grooming Academy, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-14.jpg', cap: 'Detalle del trabajo de color en el manto', alt: 'Primer plano de un manto teñido en tonos rosas y morados durante el workshop, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-15.jpg', cap: 'Resultado final con tinte rosa', alt: 'Dos participantes sostienen un perro blanco con tinte rosa terminado, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-16.jpg', cap: 'Trabajo de color creativo terminado', alt: 'Una participante besa a su perro con un diseño de color creativo de manchas, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-17.jpg', cap: 'Perro terminado al cierre del workshop', alt: 'Dos participantes presentan un perro pequeño terminado con moños rosas, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-18.jpg', cap: 'Color creativo en un perro de manto corto', alt: 'Perro de manto corto con corazones rosas pintados sobre la mesa de trabajo, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-1-19.jpg', cap: 'Últimos acabados en la mesa de trabajo', alt: 'Una participante da los últimos acabados a un perro blanco sobre la mesa, Bridgeport 2026' }
+          ]
+        },
+        'workshop-bridgeport-2': {
+          title: 'Workshop de Perfeccionamiento en Grooming con Gisela González — Bridgeport, 2026 (2.ª edición)',
+          meta: '25 Washington Terrace, Bridgeport, CT · 22 y 23 de septiembre de 2026',
+          photos: [
+            { src: 'assets/eventos/workshop-bridgeport-2026-flyer-2.jpg', cap: 'Flyer oficial del workshop', alt: 'Flyer oficial del Workshop de Perfeccionamiento en Grooming con Gisela González — curso intensivo de 2 días, 22 y 23 de septiembre, 25 Washington Terrace, Bridgeport, CT' },
+            { src: 'assets/eventos/workshop-bridgeport-2-01.jpg', cap: 'Participantes con su perro junto al banner', alt: 'Dos participantes presentan un pomerania sobre la mesa junto al banner de Ecuagroom, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-2-02.jpg', cap: 'Trabajo terminado con color en las patas', alt: 'Perro pequeño terminado con corbatín y detalle de color azul en las patas, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-2-03.jpg', cap: 'Presentación del trabajo terminado', alt: 'Un participante presenta su perro terminado en la segunda edición del workshop, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-2-04.jpg', cap: 'Perro terminado en la segunda edición', alt: 'Dos participantes presentan un perro blanco terminado, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-2-05.jpg', cap: 'Retrato de un trabajo terminado', alt: 'Primer plano de un perro crema terminado sobre la mesa de trabajo, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-2-06.jpg', cap: 'Entrega de certificados de la segunda edición', alt: 'Una participante recibe su certificado en la segunda edición del workshop, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-2-07.jpg', cap: 'Trabajo de color creativo en la mesa', alt: 'Perro con diseño de manchas y orejas naranjas sobre la mesa hidráulica, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-2-08.jpg', cap: 'Certificado y trabajo de color terminado', alt: 'Participante con su certificado junto a su perro con el trabajo de color terminado, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-2-09.jpg', cap: 'Presentación del trabajo de color creativo', alt: 'Dos participantes levantan al perro para mostrar el diseño de color terminado, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-2-10.jpg', cap: 'Detalle del trabajo de color terminado', alt: 'Perro con manchas y orejas naranjas terminado sobre la mesa, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-2-11.jpg', cap: 'Un momento de descanso en la academia', alt: 'Una participante acaricia a un perro pequeño en el sofá de la academia, Bridgeport 2026' },
+            { src: 'assets/eventos/workshop-bridgeport-2-12.jpg', cap: 'Cierre del workshop con certificado', alt: 'Dos participantes con certificado junto a un perro blanco con color azul y rojo, Bridgeport 2026' }
+          ]
+        },
+        'nivelacion-2026': {
+          title: 'Taller de Nivelación con Gisela González — Nueva York, 2026',
+          meta: 'Queens, Nueva York · 28 de septiembre de 2026',
+          photos: [
+            { src: 'assets/eventos/nivelacion-2026-flyer.jpg', cap: 'Flyer oficial del taller de nivelación', alt: 'Flyer oficial del Taller de Nivelación con Gisela González — lunes 28 de septiembre, Queens, Nueva York' },
+            { src: 'assets/eventos/nivelacion-2026-ny-01.jpg', cap: 'Práctica en el estudio de Queens', alt: 'Una participante seca y peina a un poodle blanco de pie sobre la mesa bajo la luz del estudio, Queens 2026' },
+            { src: 'assets/eventos/nivelacion-2026-ny-02.jpg', cap: 'Perro listo sobre la mesa de trabajo', alt: 'Perro blanco esponjoso sentado sobre la mesa frente al banner, Taller de Nivelación en Queens, 2026' },
+            { src: 'assets/eventos/nivelacion-2026-ny-03.jpg', cap: 'Demostración durante la jornada', alt: 'Un perro marrón sobre la mesa mientras las participantes observan la demostración, Queens 2026' },
+            { src: 'assets/eventos/nivelacion-2026-ny-04.jpg', cap: 'Práctica con perros reales en Queens', alt: 'Una participante junto a su perro blanco sobre la mesa durante la práctica, Queens 2026' },
+            { src: 'assets/eventos/nivelacion-2026-ny-05.jpg', cap: 'Jornada de nivelación en Queens', alt: 'Dos participantes presentan un perro marrón terminado sobre la mesa, Queens 2026' },
+            { src: 'assets/eventos/nivelacion-2026-ny-06.jpg', cap: 'Trabajo terminado durante el taller', alt: 'Dos participantes presentan un perro blanco terminado sobre la mesa, Queens 2026' },
+            { src: 'assets/eventos/nivelacion-2026-ny-07.jpg', cap: 'Con el perro terminado al cierre', alt: 'Dos participantes sostienen a un perro blanco terminado al cierre de la práctica, Queens 2026' },
+            { src: 'assets/eventos/nivelacion-2026-ny-08.jpg', cap: 'Aplicación de color durante la práctica', alt: 'Aplicación de un diseño de color en forma de corazón sobre el lomo de un perro blanco, Queens 2026' },
+            { src: 'assets/eventos/nivelacion-2026-ny-09.jpg', cap: 'Detalle del diseño de color', alt: 'Detalle del corazón de colores mientras se retoca con tijera, Queens 2026' },
+            { src: 'assets/eventos/nivelacion-2026-ny-10.jpg', cap: 'Corrección del diseño de color en la mesa', alt: 'La instructora corrige el diseño de color sobre el perro mientras una participante observa, Queens 2026' },
+            { src: 'assets/eventos/nivelacion-2026-ny-11.jpg', cap: 'Resultado final del taller de nivelación', alt: 'Perro blanco terminado con las patas teñidas de azul sobre la mesa, Queens 2026' }
+          ]
+        },
+        'masterclass-2026': {
+          title: 'Masterclass Ecuagroom 2026 — Nueva York, 2026',
+          meta: 'Courtyard by Marriott Long Island City, Nueva York · 20 de septiembre de 2026',
+          photos: [
+            { src: 'assets/eventos/masterclass-2026-flyer.jpg', cap: 'Flyer oficial de la Masterclass', alt: 'Flyer oficial de la Masterclass Professional Dog Grooming de Ecuagroom con Gisela González y el groomer Harry como ponente invitado — 20 de septiembre, Courtyard by Marriott Long Island City, 29-15 Queens Plaza North, Long Island City, NY 11101' },
+            { src: 'assets/eventos/masterclass-2026-1.jpg', cap: 'Durante la masterclass', alt: 'Blanca Lamar durante la Masterclass Ecuagroom 2026 en Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-2.jpg', cap: 'Entrega de certificados', alt: 'Un participante posa con su certificado acompañado por dos integrantes del equipo en los eventos de Nueva York 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-1.jpg', cap: 'Foto grupal de la masterclass', alt: 'Foto grupal de los asistentes a la Masterclass Ecuagroom 2026 en Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-fb-2.jpg', cap: 'Demostración frente al público', alt: 'Demostración con un perro blanco frente a los asistentes de la masterclass, Nueva York 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-3.jpg', cap: 'Trabajo en la mesa', alt: 'La instructora trabaja un perro blanco en la mesa mientras los asistentes observan, Masterclass 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-4.jpg', cap: 'El público rodea la mesa', alt: 'Asistentes observan de cerca la demostración de la masterclass, Nueva York 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-5.jpg', cap: 'Detalle de la demostración', alt: 'Primer plano del trabajo sobre el perro durante la demostración de la masterclass, 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-6.jpg', cap: 'Técnica de carita', alt: 'La instructora define la carita del perro durante la demostración, Masterclass 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-7.jpg', cap: 'Acabado del manto', alt: 'Trabajo de acabado sobre el manto blanco del perro en la masterclass, 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-8.jpg', cap: 'Peinado en la demostración', alt: 'La instructora peina al perro blanco frente al público de la masterclass, 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-9.jpg', cap: 'Demostración en el salón del hotel', alt: 'Demostración de grooming en el salón del evento, Masterclass Ecuagroom 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-10.jpg', cap: 'Certificado: Creative Grooming & Color', alt: 'Una participante posa con su certificado junto al equipo Ecuagroom, Masterclass 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-11.jpg', cap: 'Doble certificado', alt: 'Una participante muestra sus dos certificados acompañada del equipo, Masterclass 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-12.jpg', cap: 'Entrega de certificados', alt: 'Participante con su certificado de la masterclass junto al equipo Ecuagroom, Nueva York 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-13.jpg', cap: 'Certificado de la masterclass', alt: 'Una participante posa con su certificado de la Masterclass Ecuagroom 2026' },
+            { src: 'assets/eventos/masterclass-2026-fb-14.jpg', cap: 'Grooming creativo con color', alt: 'Un participante sostiene un perro blanco con toques de color tras la masterclass, Nueva York 2026' },
+            { src: 'assets/eventos/masterclass-2026-extra-1.jpg', cap: 'Presentación con pantalla y banner; perrito blanco en mesa y público asistente', alt: 'Presentación con pantalla y banner; perrito blanco en mesa y público asistente — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-3.jpg', cap: 'Demostración: trabajo sobre un perro blanco en mesa, público observando', alt: 'Demostración: trabajo sobre un perro blanco en mesa, público observando — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-4.jpg', cap: 'Demostración de grooming frente al banner de ECUAGROOM', alt: 'Demostración de grooming frente al banner de ECUAGROOM — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-5.jpg', cap: 'Demostración práctica con asistentes observando', alt: 'Demostración práctica con asistentes observando — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-6.jpg', cap: 'Ajuste de adornos en un perro blanco sobre la mesa', alt: 'Ajuste de adornos en un perro blanco sobre la mesa — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-7.jpg', cap: 'Primer plano del trabajo de peinado en proceso', alt: 'Primer plano del trabajo de peinado en proceso — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-8.jpg', cap: 'Perro blanco terminado, con moño rosa y collar de flor roja', alt: 'Perro blanco terminado, con moño rosa y collar de flor roja — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-9.jpg', cap: 'Foto grupal frente al banner del evento', alt: 'Foto grupal frente al banner del evento — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-10.jpg', cap: 'Participante frente al banner de caniche', alt: 'Participante frente al banner de caniche — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-11.jpg', cap: 'Participante con tijeras de grooming frente al banner', alt: 'Participante con tijeras de grooming frente al banner — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-12.jpg', cap: 'Participante con su credencial frente al banner', alt: 'Participante con su credencial frente al banner — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-13.jpg', cap: 'Participante junto al banner completo de ECUAGROOM', alt: 'Participante junto al banner completo de ECUAGROOM — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-14.jpg', cap: 'Tres participantes frente al banner, una con su certificado enmarcado', alt: 'Tres participantes frente al banner, una con su certificado enmarcado — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-15.jpg', cap: 'Participante con su certificado enmarcado frente al banner', alt: 'Participante con su certificado enmarcado frente al banner — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-16.jpg', cap: 'Entrega de un certificado enmarcado durante el evento', alt: 'Entrega de un certificado enmarcado durante el evento — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-17.jpg', cap: 'Demostración con un perro esponjoso rosado y blanco sobre la mesa', alt: 'Demostración con un perro esponjoso rosado y blanco sobre la mesa — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-18.jpg', cap: 'Blanca Lamar junto a su esposo Christopher Warren', alt: 'Blanca Lamar junto a su esposo Christopher Warren — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-19.jpg', cap: 'Ponencia durante la masterclass', alt: 'Ponencia durante la masterclass — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-20.jpg', cap: 'Presentación en pantalla con público asistente', alt: 'Presentación en pantalla con público asistente — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-23.jpg', cap: 'Presentación del tema frente al público', alt: 'Presentación del tema frente al público — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/masterclass-2026-extra-24.jpg', cap: 'Ponente de frente al público, con la pantalla del tema detrás', alt: 'Ponente de frente al público, con la pantalla del tema detrás — Masterclass Ecuagroom 2026, Nueva York' },
+            { src: 'assets/eventos/nueva-york-2026-1.jpg', cap: 'La comunidad Ecuagroom reunida en la masterclass', alt: 'Foto grupal de la comunidad groomer reunida en la Masterclass Ecuagroom 2026 en Nueva York' },
+            { src: 'assets/eventos/nueva-york-2026-2.jpg', cap: 'Participante junto al banner de Ecuagroom', alt: 'Una participante posa con sus tijeras y su peine junto al banner de Ecuagroom en la Masterclass Ecuagroom 2026, Nueva York' }
+          ]
+        }
+      };
+
+      var albumOverlay = document.getElementById('albumOverlay');
+      var albumGrid = document.getElementById('albumGrid');
+      var albumView = document.getElementById('albumView');
+      var albumImg = document.getElementById('albumImg');
+      var albumCap = document.getElementById('albumCap');
+      var albumCount = document.getElementById('albumCount');
+      var currentAlbum = null;
+      var currentPhoto = 0;
+      var lastAlbumOpener = null;
+
+      function showAlbumPhoto(i) {
+        var photos = currentAlbum.photos;
+        currentPhoto = (i + photos.length) % photos.length;
+        var p = photos[currentPhoto];
+        albumImg.src = p.src;
+        albumImg.alt = p.alt;
+        albumCap.textContent = p.cap;
+        albumCount.textContent = (currentPhoto + 1) + ' de ' + photos.length;
+      }
+      function openAlbumView(i) {
+        albumGrid.style.display = 'none';
+        albumView.hidden = false;
+        showAlbumPhoto(i);
+      }
+      function backToAlbumGrid() {
+        albumView.hidden = true;
+        albumGrid.style.display = '';
+      }
+      function openAlbum(key, opener) {
+        var album = ALBUMS[key];
+        if (!album) return;
+        currentAlbum = album;
+        lastAlbumOpener = opener || null;
+        document.getElementById('albumTitle').textContent = album.title;
+        document.getElementById('albumMeta').textContent = album.meta;
+        var note = document.getElementById('albumNote');
+        if (album.note) { note.textContent = album.note; note.hidden = false; } else { note.hidden = true; }
+        albumGrid.innerHTML = '';
+        album.photos.forEach(function (p, i) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.setAttribute('aria-label', 'Ver foto: ' + p.cap);
+          var im = document.createElement('img');
+          im.src = p.src;
+          im.alt = p.alt;
+          im.loading = 'lazy';
+          b.appendChild(im);
+          b.addEventListener('click', function () { openAlbumView(i); });
+          albumGrid.appendChild(b);
+        });
+        backToAlbumGrid();
+        albumOverlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+        document.getElementById('albumClose').focus();
+      }
+      function closeAlbum() {
+        albumOverlay.hidden = true;
+        document.body.style.overflow = '';
+        albumImg.removeAttribute('src');
+        if (lastAlbumOpener) lastAlbumOpener.focus();
+      }
+      document.querySelectorAll('[data-album]').forEach(function (el) {
+        el.addEventListener('click', function () { openAlbum(el.getAttribute('data-album'), el); });
+      });
+      document.getElementById('albumClose').addEventListener('click', closeAlbum);
+      document.getElementById('albumBackdrop').addEventListener('click', closeAlbum);
+      document.getElementById('albumBack').addEventListener('click', backToAlbumGrid);
+      document.getElementById('albumPrev').addEventListener('click', function () { showAlbumPhoto(currentPhoto - 1); });
+      document.getElementById('albumNext').addEventListener('click', function () { showAlbumPhoto(currentPhoto + 1); });
+      document.addEventListener('keydown', function (e) {
+        if (albumOverlay.hidden) return;
+        if (e.key === 'Escape') {
+          if (!albumView.hidden) backToAlbumGrid(); else closeAlbum();
+        } else if (!albumView.hidden && e.key === 'ArrowLeft') {
+          showAlbumPhoto(currentPhoto - 1);
+        } else if (!albumView.hidden && e.key === 'ArrowRight') {
+          showAlbumPhoto(currentPhoto + 1);
+        }
+      });
+    </script>
+  </body>
+</html>
